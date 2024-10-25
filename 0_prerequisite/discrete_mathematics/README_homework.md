@@ -1,0 +1,82 @@
+# Homework
+
+## 2.1 A party
+
+Alice invites six guests to her birthday party: Bob, Carl, Diane, Eve, Frank and George.
+
+---
+
+**Question**: if each person shake hand with everyone else, how many handshakes are there?
+
+**Answer**: 21
+
+**Explain**: Because the first person will have 6 handshakes, the second person will have 5 handshakes (the handshake with the first person is already counted), the third person will have 4 handshakes (the handshakes with the first and second person are already counted) and so on. So it's `6 + 5 + 4 + 3 + 2 + 1 + 0 = 21`
+
+---
+
+2.1 **Question**: If they change seat every half an hour, how many seating combinations possible? How long this party will last?
+
+**Answer**: `7! = 5040` possibilities and `5040 * 0.5 / 24 = 105` days
+
+---
+
+**Question**: They want to dance (3 girls, 4 guys), how many possible pairs can be formed?
+
+**Answer**: there are 3 girls, and each can choose one of 4 guys, this make `3 * 4 = 12`
+
+---
+
+**Question**: They want to buy enough tickets so that no matter what the lottery draw, they should have a ticket with thhe right numbers. How many tickets do they need for that? (In lottery they are talking about, 5 numbers are selected from 90)
+
+Imagine we have a big bag with 90 balls, each with a unique number from 1 to 90. In this lottery game, someone reaches into the bag and picks out 5 balls at random.
+
+Here's the goal: if the numbers on your ticket match the numbers on the 5 balls drawn, you win the prize (no matter which order)!
+
+**Answer**:
+
+```
+90 * 89 * 88 * 87 * 86
+----------------------- = 43,949,268`
+5 * 4 * 3 * 2 * 1
+```
+
+**Explain**: This works almost like seating problem, among the `( 90 * 89 * 88 * 87 * 86 )` tickets we get, every 5-tuple occurs not only once, but `( 5 * 4 * 3 * 2 * 1 )` times. So the number of different tickets is only `43,949,268`
+
+---
+
+**Question**: They play card, what is the possibility that someone have the same hand twice? (the deck has 52 cards, each player gets 13)
+
+**Answer**:
+
+```
+52 * 51 * 50 * ... * 40
+----------------------- = 635,013,559,600
+13 * 12 * 11 * ... * 1
+```
+
+**Explain**: This is the same question as lottery problem above
+
+---
+
+**Question**: They want to play chess and set up 3 boards. How many ways can these guys be matched with each other?
+
+**Answer**:
+
+```
+6!               720
+-------------- = --- = 15 (ways)
+3! * 2 * 2 * 2   48
+```
+
+**Explain**: Like in seating problem, all possibilities are `6!` and like the lottery problem where the boards' order don't matter, then we have to divide `3!`. And since which side they play doesn't matter too (either black or white), then we have to divide `2 * 2 * 2` to get unique matching
+
+Another way to think about it: the first person will have 5 options to choose from (`* 5`) and the second person already matched with first person. The third person will have 3 options to choose from (`* 3`) and the 4th person already match with third person. The 5th and 6th will automatically match with each other so it's `* 1`. And the result is `5 * 3 * 1 = 15`
+
+---
+
+## 2.2 Sets and the like
+
+<!-- **Question**: -->
+<!-- **Answer**: -->
+<!-- **Explain**: -->
+<!-- --- -->
