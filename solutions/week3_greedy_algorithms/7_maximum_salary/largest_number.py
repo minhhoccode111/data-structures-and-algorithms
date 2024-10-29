@@ -1,5 +1,7 @@
 from itertools import permutations
 
+# TODO:
+
 
 def largest_number_naive(numbers):
     numbers = list(map(str, numbers))
@@ -12,7 +14,7 @@ def largest_number_naive(numbers):
     return largest
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     _ = int(input())
     input_numbers = input().split()
     print(largest_number_naive(input_numbers))
