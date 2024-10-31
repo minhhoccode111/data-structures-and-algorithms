@@ -1,4 +1,4 @@
-# Linear Search and Binary Search
+# Linear Search and Binary Search Assignment
 
 1. You have an array with 1023 numbers. You use linear search to determine whether number 239 is in this array or not. How many elements of the array will you look at if number 239 is not present in the array?
 

@@ -25,7 +25,9 @@
     - Find a string that contains each binary string of length `k` as a substring exactly once
     - e.g., `0011101000` with `k = 3` is a universal string because it contains `001`, `011`, `111`, `110`, `101`, `010`, `100`, `000` exactly once each string
     - The algorithms for this problem are quite similar to the algorithms that biologists use for `Genome Assembly` (with `k = 10`)
-  - Josephus problem <!--TODO:-->
+  - Josephus problem
+    - puzzle where people are arranged in a circle and eliminated in a fixed counting pattern until only one person remains
+    - The goal is to determine the position of this last person standing
 
 - A graph is a collection of nodes and edges between them
 - The degree of a node is defined as the number of edges incident to this node
