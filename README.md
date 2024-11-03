@@ -17,3 +17,13 @@
 - [Advanced Algorithms and Complexity](https://www.coursera.org/learn/advanced-algorithms-and-complexity)
 
 - [Genome Assembly Programming Challenge](https://www.coursera.org/learn/assembling-genomes)
+
+## References
+
+- [Learn Python In Y Minutes](https://learnxinyminutes.com/docs/python/)
+- [Discrete Mathematics Lecture notes by László Lovász, Yale University](https://cims.nyu.edu/~regev/teaching/discrete_math_fall_2005/dmbook.pdf)
+- Algorithms (1st Edition). Sanjoy Dasgupta, Christos Papadimitriou, and Umesh Vazirani
+- Algorithms (4th Edition). Robert Sedgewick, Kevin Wayne
+- Introduction to Algorithms (3rd Edition). Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein
+- Advanced Dynamic Programming Lecture Notes. Jeff Erickson
+- Bioinformatics Algorithms: An Active Learning Approach. Phillip Compeau, Pavel Pevzner
