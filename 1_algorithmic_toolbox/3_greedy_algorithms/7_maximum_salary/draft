@@ -1,0 +1,21 @@
+Function IsGreaterOrEqual(digit1, digit2):
+    return int(str(digit1) + str(digit2)) > int(str(digit2) + str(digit1))
+
+Function LargestNumber(numbers):
+    // Convert all numbers to strings
+    numbers = convert all numbers to strings
+
+    // Custom sort using comparison function
+    Sort numbers using IsGreaterOrEqual as comparison function
+
+    // Handle case of all zeros
+    if first number is "0":
+        return "0"
+
+    // Join all numbers together
+    return concatenate all numbers into single string
+
+Main:
+    Read n
+    Read array of numbers
+    Print LargestNumber(numbers)
