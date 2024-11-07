@@ -1,23 +1,23 @@
 import math
 
 n = int(input())
-num_operations = [0, 0] + [math.inf] * (n - 1)
+num_ops = [0, 0] + [math.inf] * (n - 1)
 for i in range(2, n + 1):
     temp1, temp2, temp3 = [math.inf] * 3
-    temp1 = num_operations[i - 1] + 1
+    temp1 = num_ops[i - 1] + 1
     if i % 2 == 0:
-        temp2 = num_operations[i // 2] + 1
+        temp2 = num_ops[i // 2] + 1
     if i % 3 == 0:
-        temp3 = num_operations[i // 3] + 1
+        temp3 = num_ops[i // 3] + 1
     min_ops = min(temp1, temp2, temp3)
-    num_operations[i] = min_ops
-print(num_operations[n])
+    num_ops[i] = min_ops
+print(num_ops[n])
 nums = [n]
 while n != 1:
-    if n % 3 == 0 and num_operations[n] - 1 == num_operations[n // 3]:
+    if n % 3 == 0 and num_ops[n] - 1 == num_ops[n // 3]:
         nums += [n // 3]
         n = n // 3
-    elif n % 2 == 0 and num_operations[n] - 1 == num_operations[n // 2]:
+    elif n % 2 == 0 and num_ops[n] - 1 == num_ops[n // 2]:
         nums += [n // 2]
         n = n // 2
     else:

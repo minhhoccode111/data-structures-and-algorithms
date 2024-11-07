@@ -1,5 +1,13 @@
 # Dynamic programming 1
 
+5 easy steps
+
+- define subproblems
+- guess part of solution
+- recurrence
+- recurse + memoize / check acyclic
+- solve original problem
+
 ## Change problem
 
 Find the minimum number of coins needed to make change

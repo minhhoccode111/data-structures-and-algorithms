@@ -58,3 +58,33 @@ max        0  0  3  7  7 10 10 13 17 17 20
 
 So the answer is: 20
 ```
+
+## Placing Parentheses (Or maximum value of an arithmetic expression)
+
+M: for storing the max values
+m: for storing the min values
+
+```
+MinAndMax(i,j)
+min <- +Inf
+max <- -Inf
+for k from i to j - 1:
+    a <- M(i,k) op<k> M(k + 1, j)
+    b <- M(i,k) op<k> m(k + 1, j)
+    c <- m(i,k) op<k> M(k + 1, j)
+    d <- m(i,k) op<k> m(k + 1, j)
+    min <- min(min, a, b, c, d)
+    max <- max(max, a, b, c, d)
+return (min,max)
+```
+
+```
+Parentheses(d<1>op<1>d<2>op<2>...d<n>)
+for i from 1 to n:
+    m(i, i) <- d<i>, M(i, i) <- d<i>
+for s from 1 to n - 1:
+    for i from 1 to n -s:
+        j <- i + s
+        m(i, j), M(i, j) <- MinAndMax(i, j)
+return M(1,n)
+```

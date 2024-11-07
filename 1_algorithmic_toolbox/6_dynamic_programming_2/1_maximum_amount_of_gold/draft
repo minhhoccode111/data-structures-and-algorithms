@@ -1,0 +1,24 @@
+Initialize all K(0, j) = 0 and all K(w, 0) = 0
+for j = 1 to n:
+    for w = 1 to W:
+        if w<j> > w: K(w, j) = K(w, j - 1)
+        else: K(w, j) = max{K(w, j-1), K(w - w<j>, j - 1) + v<j>}
+return K(W,n)
+
+W = 10
+Item Weight
+1     1
+2     4
+3     8
+
+
+       (W) 0  1  2  3  4  5  6  7  8  9 10
+  (n)(w)
+  0        0  0  0  0  0  0  0  0  0  0  0
+1(1)       0  1  1  1  1  1  1  1  1  1  1
+2(4)       0  1  1  1  4  5  5  5  5  5  5
+3(8)       0  1  1  1  4  5  5  5  8  9  9
+max        0  1  1  1  4  5  5  5  8  9  9
+
+So the answer is: 9
+
