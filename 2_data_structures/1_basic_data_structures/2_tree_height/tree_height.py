@@ -27,5 +27,5 @@ def main():
 # so raise it here for this problem. Note that to take advantage
 # of bigger stack, we have to launch the computation in a new thread.
 sys.setrecursionlimit(10**7)  # max depth of recursion
-threading.stack_size(2**27)   # new thread will get stack of such size
+threading.stack_size(2**27)  # new thread will get stack of such size
 threading.Thread(target=main).start()

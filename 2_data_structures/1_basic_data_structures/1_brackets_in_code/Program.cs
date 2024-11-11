@@ -48,16 +48,16 @@ namespace CheckBrackets
             for (int i = 0; i < text.Length; i++)
             {
                 // current character
-                char next = text[i];
+                char currChar = text[i];
 
                 // if current character is open bracket
-                if (IsOpenBracket(next))
+                if (IsOpenBracket(currChar))
                 {
                     // push current char to the top of the stack
-                    openingBracketsStack.Push(new Bracket(next, i + 1));
+                    openingBracketsStack.Push(new Bracket(currChar, i + 1));
                 }
                 // if current character is close bracket
-                else if (IsCloseBracket(next))
+                else if (IsCloseBracket(currChar))
                 {
                     // and if no open bracket exist in the stack
                     if (openingBracketsStack.Count == 0)
@@ -70,7 +70,7 @@ namespace CheckBrackets
                     Bracket top = openingBracketsStack.Pop();
 
                     // check if the top element bracket is not pair with the close bracket
-                    if (!AreMatching(top.Char, next))
+                    if (!AreMatching(top.Char, currChar))
                     {
                         // then also return the index + 1
                         return i + 1;
