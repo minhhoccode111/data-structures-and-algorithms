@@ -1,0 +1,28 @@
+Test 01 PASSED (Time: 9.81ms)
+Test 02 PASSED (Time: 115μs)
+Test 03 PASSED (Time: 149μs)
+Test 04 PASSED (Time: 86μs)
+Test 05 PASSED (Time: 99μs)
+Test 06 PASSED (Time: 57μs)
+Test 07 PASSED (Time: 65μs)
+Test 08 PASSED (Time: 58μs)
+Test 09 PASSED (Time: 55μs)
+Test 10 PASSED (Time: 64μs)
+Test 11 PASSED (Time: 64μs)
+Test 12 PASSED (Time: 150μs)
+Test 13 PASSED (Time: 97μs)
+Test 14 PASSED (Time: 64μs)
+Test 15 PASSED (Time: 56μs)
+Test 16 PASSED (Time: 42.12ms)
+Test 17 PASSED (Time: 45.57ms)
+Test 18 PASSED (Time: 51.26ms)
+Test 19 PASSED (Time: 51.90ms)
+Test 20 PASSED (Time: 34.14ms)
+Test 21 PASSED (Time: 52.37ms)
+Test 22 PASSED (Time: 59.03ms)
+Test 23 PASSED (Time: 61.47ms)
+Test 24 PASSED (Time: 57.97ms)
+
+Test Summary: 24/24 tests passed
+Total Time: 484.60ms
+Average Time per Test: 20.19ms

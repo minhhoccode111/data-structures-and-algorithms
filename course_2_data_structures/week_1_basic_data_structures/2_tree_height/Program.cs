@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 /*
 input:
@@ -30,41 +31,69 @@ namespace TreeHeight
     {
         static List<int>[] adj;
 
-        static int DFS(int r)
+        static int DFSIterative(int root)
         {
-            if (adj[r].Count == 0)
-                return 1;
+            // Stack will store pairs of (node, depth)
+            var stack = new Stack<(int node, int depth, int childIndex)>();
+            var maxDepth = 1;
 
-            int maxDepth = 0;
-            foreach (int child in adj[r])
+            // Push root node with depth 1
+            stack.Push((root, 1, 0));
+
+            while (stack.Count > 0)
             {
-                maxDepth = Math.Max(maxDepth, DFS(child));
+                var (node, depth, childIndex) = stack.Pop();
+                maxDepth = Math.Max(maxDepth, depth);
+
+                // If we have more children to process
+                if (childIndex < adj[node].Count)
+                {
+                    // Push current node back with next child index
+                    stack.Push((node, depth, childIndex + 1));
+                    // Push the child
+                    var child = adj[node][childIndex];
+                    stack.Push((child, depth + 1, 0));
+                }
             }
 
-            return 1 + maxDepth;
+            return maxDepth;
         }
 
-        static void Main()
+        public static int TreeHeightCal(string inputN, string inputParents)
         {
-            int n = int.Parse(Console.ReadLine());
+            int n = int.Parse(inputN);
             adj = new List<int>[n];
-
             for (int i = 0; i < n; i++)
                 adj[i] = new List<int>();
 
             int root = -1;
-            string[] parents = Console.ReadLine().Split();
+            int[] parents = inputParents.Split(' ').Select(int.Parse).ToArray();
 
             for (int i = 0; i < n; i++)
             {
-                int parent = int.Parse(parents[i]);
+                int parent = parents[i];
                 if (parent == -1)
                     root = i;
                 else
                     adj[parent].Add(i);
             }
 
-            Console.WriteLine(DFS(root));
+            return DFSIterative(root);
+        }
+
+        static void Main(string[] args)
+        {
+            if (args is not null)
+            {
+                Tests.Tests.Run();
+                return;
+            }
+
+            string n = Console.ReadLine() ?? throw new ArgumentNullException("Need input 'n'");
+            string parents =
+                Console.ReadLine() ?? throw new ArgumentNullException("Need input 'parents'");
+
+            Console.WriteLine(TreeHeightCal(n, parents));
         }
     }
 }

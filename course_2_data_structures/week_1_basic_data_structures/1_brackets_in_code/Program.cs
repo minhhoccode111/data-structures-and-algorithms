@@ -1,112 +1,88 @@
-﻿// See https://aka.ms/new-console-template for more information
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 
-// group everything related, in this situation is the check brackets problem
 namespace CheckBrackets
 {
-    // Bracket helper class
-    public class Bracket
+    class Bracket
     {
-        // public properties, can only be get
-        public char Char { get; } // get the bracket character
-        public int Position { get; } // get the position of bracket character in the string
+        public char Value { get; }
+        public int Index { get; }
 
-        // constructor function to initialize values
-        public Bracket(char ch, int position)
+        public Bracket(char value, int index)
         {
-            Char = ch;
-            Position = position;
+            Value = value;
+            Index = index;
         }
     }
 
-    // .NET will search to run the `public static void Main` method in Program class to run
+    class Helper
+    {
+        public static bool IsOpen(char currChar) =>
+            currChar == '{' || currChar == '(' || currChar == '[';
+
+        public static bool IsClose(char currChar) =>
+            currChar == '}' || currChar == ')' || currChar == ']';
+
+        public static bool IsSameType(char openBracket, char closeBracket) =>
+            (openBracket == '{' && closeBracket == '}')
+            || (openBracket == '(' && closeBracket == ')')
+            || (openBracket == '[' && closeBracket == ']');
+    }
+
     public class Program
     {
-        // helper method, can be call in every other method in this Program class
-        // or call with Program.AreMatching from other class if public
-        private static bool AreMatching(char left, char right)
+        public static int FindMismatch(string text)
         {
-            // check if the left character is the same type with the right character
-            return (left == '(' && right == ')')
-                || (left == '[' && right == ']')
-                || (left == '{' && right == '}');
-        }
-
-        // helper method, to check if char is opening bracket
-        private static bool IsOpenBracket(char c) => c == '(' || c == '[' || c == '{';
-
-        private static bool IsCloseBracket(char c) => c == ')' || c == ']' || c == '}';
-
-        // private method to find mismatch in a string of brackets
-        private static int FindMismatch(string text)
-        {
-            // create a stack to store opening bracket
-            Stack<Bracket> openingBracketsStack = new Stack<Bracket>();
-            // loop through every character in the input string
+            Stack<Bracket> openBrackets = new Stack<Bracket>();
             for (int i = 0; i < text.Length; i++)
             {
-                // current character
                 char currChar = text[i];
 
-                // if current character is open bracket
-                if (IsOpenBracket(currChar))
+                if (Helper.IsOpen(currChar))
                 {
-                    // push current char to the top of the stack
-                    openingBracketsStack.Push(new Bracket(currChar, i + 1));
+                    Bracket openBracket = new Bracket(currChar, i + 1);
+                    openBrackets.Push(openBracket);
                 }
-                // if current character is close bracket
-                else if (IsCloseBracket(currChar))
+                else if (Helper.IsClose(currChar))
                 {
-                    // and if no open bracket exist in the stack
-                    if (openingBracketsStack.Count == 0)
+                    if (openBrackets.Count == 0)
                     {
-                        // then return the index + 1
                         return i + 1;
                     }
 
-                    // we pop the top element of the stack bracket
-                    Bracket top = openingBracketsStack.Pop();
+                    char openBracket = openBrackets.Pop().Value;
 
-                    // check if the top element bracket is not pair with the close bracket
-                    if (!AreMatching(top.Char, currChar))
+                    if (!Helper.IsSameType(openBracket, currChar))
                     {
-                        // then also return the index + 1
                         return i + 1;
                     }
                 }
             }
 
-            // after looping through every character in the input string,
-            // if the opening brackets stack still greater than 0
-            // which mean that there is still mismatch
-            if (openingBracketsStack.Count > 0)
+            if (openBrackets.Count != 0)
             {
-                // then we return the last bracket position
-                return openingBracketsStack.Peek().Position;
+                return openBrackets.Pop().Index;
             }
 
-            // else return -1, indicate that there is no mismatch found
             return -1;
         }
 
-        // this is our program starting point
-        public static void Main()
+        public static void Main(string[] args)
         {
-            // get input from the command line
+            if (args is not null)
+            {
+                Tests.Tests.Run();
+                return;
+            }
+
             string text = Console.ReadLine() ?? throw new Exception("Need input!");
-            // find mismatch in the input string
             int mismatch = FindMismatch(text);
-            // if no mismatch found
             if (mismatch == -1)
             {
-                // then write "Success" to the command line
                 Console.WriteLine("Success");
             }
             else
             {
-                // else write the mismatch position
                 Console.WriteLine(mismatch);
             }
         }
