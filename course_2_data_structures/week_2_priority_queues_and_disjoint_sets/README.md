@@ -1,11 +1,3 @@
-# Dynamic Arrays and Anortized Analysis
+# Priority Queues and Disjoint Sets
 
-## Dynamic Arrays
-
-## Anortized Analysis: Aggregate method
-
-## Anortized Analysis: Banker's method
-
-## Anortized Analysis: Physicist's method
-
-## Anortized Analysis: Summary
+##
