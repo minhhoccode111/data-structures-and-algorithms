@@ -1,6 +1,10 @@
 # Priority Queues and Disjoint Sets
 
-## Pseudocode
+## Heap
+
+Note that assumming we use base 1 indexing
+
+### Pseudo code
 
 ```
 Parent(i)
@@ -17,69 +21,56 @@ RightChild(i)
 return 2i + 1
 ```
 
-```
-SiftUp(i)
-while i > 1 and H[Parent(i)] < H[1]:
-    swap H[Parent(i)] and H[i]
-    i <- Parent(i)
-```
-
-```
-SiftDown(i)
-maxIndex <- i
-l <- LeftChild(i)
-if l <= size and H[l] > H[maxIndex]:
-    maxIndex <- l
-r <- RightChild(i)
-if r <= size and H[r] > H[maxIndex]:
-    maxIndex <- r
-if i != maxIndex:
-    swap H[i] and H[maxIndex]
-    SiftDown(maxIndex)
-```
-
-```
-Insert(p)
-if size = maxSize:
-    return ERROR
-size <- size + 1
-H[size] <- p
-SiftUp(size)
-```
-
-```
-ExtractMax()
-result <- H[1]
-H[1] <- H[size]
-size <- size - 1
-SiftDown(1)
-return result
-```
-
-```
-Remove(i)
-H[i] <- Infinity
-SiftUp(i)
-ExtractMax()
-```
-
-```
-ChangePriority(i, p)
-oldp <- H[i]
-H[i] <- p
-if p > oldp:
-    SiftUp(i)
-else:
-    SiftDown(i)
-```
-
-## HeapSort
+## HeapSort Pseudo code
 
 ```
 HeapSort(A[1...n])
-create an empty priority queue
-for i from 1 to n:
-    Insert(A[i])
-for i from n downto 1:
-    A[i] <- ExtractMax()
+    BuildMaxHeap(A)
+    for i = n to 1
+        swap A[1] and A[i]
+        n = n - 1
+        Heapify(A, 1)
+
+BuildMaxHeap(A[1...n])
+    n = elements_in(A)
+    for i = floor(n/2) to 1
+        Heapify(A, i)
+
+Heapify(A[1...n], i)
+    left = 2i
+    right = 2i + 1
+    max = i
+    if left <= n and A[left] > A[max]:
+        max = left
+    if right <= n and A[right] > A[max]:
+        max = right
+    if max != i:
+        swap A[i] and A[max]
+        Heapify(A, max)
+```
+
+## Disjoint Sets
+
+Definition
+
+A disjoint-set data structure is a data structure that supports the following operations:
+
+- MakeSet(x) creates a singleton set {x}
+- Find(x) returns ID of the set containing x:
+  - if x and y lie in the same set, then Find(x) = Find(y)
+  - otherwise, Find(x) != Find(y)
+- Union(x, y) merges the sets containing x and y.
+
+```
+Preprocess(maze)
+for each cell c in maze:
+    MakeSet(c)
+for each cell c in maze:
+    for each neighbor n of c:
+        Union(c, n)
+```
+
+```
+IsReachable(A, B)
+return Find(A) = Find(B)
 ```
