@@ -1,0 +1,18 @@
+**Job Queue Pseudocode**
+
+1. **Read Input**
+	* Read the number of workers (N) and the number of jobs (M)
+	* Read the duration of each job (M integers)
+2. **Initialize**
+	* Create an array to store the assigned worker for each job
+	* Create an array to store the start time for each job
+	* Create an array to store the next free time for each worker
+3. **Assign Jobs**
+	* For each job (from 1 to M)
+		+ Find the worker with the earliest next free time
+		+ Assign the job to that worker
+		+ Update the start time for that job to the worker's next free time
+		+ Update the worker's next free time by adding the job duration
+4. **Write Output**
+	* For each job (from 1 to M)
+		+ Print the assigned worker and start time for that job
