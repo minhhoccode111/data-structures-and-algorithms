@@ -74,3 +74,25 @@ for each cell c in maze:
 IsReachable(A, B)
 return Find(A) = Find(B)
 ```
+
+```
+MakeSet(i)
+smallest[i] = i
+```
+
+```
+Find(i)
+return smallest[i]
+```
+
+```
+Union(i, j)
+i_id = Find(i)
+j_id = Find(j)
+if i_id == j_id:
+    return
+m = min(i_id, j_id)
+for k in range(1, n):
+    if smallest[k] in {i_id, j_id}:
+        smallest[k] = m
+```
