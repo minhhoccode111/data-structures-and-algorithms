@@ -1,0 +1,14 @@
+input:
+diff <(dotnet run <tests/02) <(cat tests/02.a)
+output: (only warning for possibly null)
+1,2d0
+< /home/mhc/project/dsa/course_2_data_structures/week_2_priority_queues_and_disjoint_sets/2_job_queue/Program.cs(28,18): warning CS8618: Non-nullable field 'Jobs' must contain a non-null value when exiting constructor. Consider declaring the field as nullable. [/home/mhc/project/dsa/course_2_data_structures/week_2_priority_queues_and_disjoint_sets/2_job_queue/2_job_queue.csproj]
+< /home/mhc/project/dsa/course_2_data_structures/week_2_priority_queues_and_disjoint_sets/2_job_queue/Program.cs(31,21): warning CS8618: Non-nullable field 'Threads' must contain a non-null value when exiting constructor. Consider declaring the field as nullable. [/home/mhc/project/dsa/course_2_data_structures/week_2_priority_queues_and_disjoint_sets/2_job_queue/2_job_queue.csproj]
+
+---
+input:
+diff <(dotnet run <tests/08) <(cat tests/08.a)
+output: (only warning for possibly null)
+1,2d0
+< /home/mhc/project/dsa/course_2_data_structures/week_2_priority_queues_and_disjoint_sets/2_job_queue/Program.cs(28,18): warning CS8618: Non-nullable field 'Jobs' must contain a non-null value when exiting constructor. Consider declaring the field as nullable. [/home/mhc/project/dsa/course_2_data_structures/week_2_priority_queues_and_disjoint_sets/2_job_queue/2_job_queue.csproj]
+< /home/mhc/project/dsa/course_2_data_structures/week_2_priority_queues_and_disjoint_sets/2_job_queue/Program.cs(31,21): warning CS8618: Non-nullable field 'Threads' must contain a non-null value when exiting constructor. Consider declaring the field as nullable. [/home/mhc/project/dsa/course_2_data_structures/week_2_priority_queues_and_disjoint_sets/2_job_queue/2_job_queue.csproj]
