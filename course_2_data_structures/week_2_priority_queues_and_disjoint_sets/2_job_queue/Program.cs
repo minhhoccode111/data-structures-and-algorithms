@@ -40,9 +40,7 @@ class JobQueue
     static void ReadData()
     {
         // first line input
-        int[] inputFirstLine = (
-            Console.ReadLine() ?? throw new ArgumentNullException("Need input n")
-        )
+        int[] inputFirstLine = (Console.ReadLine() ?? throw new Exception("Need input n"))
             .Split(' ')
             .Select(int.Parse)
             .ToArray();
@@ -66,7 +64,7 @@ class JobQueue
             .ToArray();
 
         if (Jobs.Length != NumJobs)
-            throw new Exception("Wrong input length");
+            throw new Exception("Number of jobs not match");
     }
 
     static void AssignJobs()
@@ -100,7 +98,9 @@ class JobQueue
             && (
                 (Threads[l].WaitTime < Threads[min].WaitTime)
                 || (
+                    // if wait time is equal
                     Threads[l].WaitTime == Threads[min].WaitTime
+                    // then we also have to check for thread's index
                     && Threads[l].Index < Threads[min].Index
                 )
             )
@@ -113,7 +113,9 @@ class JobQueue
             && (
                 (Threads[r].WaitTime < Threads[min].WaitTime)
                 || (
+                    // if wait time is equal
                     Threads[r].WaitTime == Threads[min].WaitTime
+                    // then we also have to check for thread's index
                     && Threads[r].Index < Threads[min].Index
                 )
             )
