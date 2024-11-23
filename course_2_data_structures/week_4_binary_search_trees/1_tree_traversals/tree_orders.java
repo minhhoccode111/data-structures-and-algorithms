@@ -2,7 +2,7 @@ import java.util.*;
 import java.io.*;
 
 public class tree_orders {
-    class FastScanner {
+	class FastScanner {
 		StringTokenizer tok = new StringTokenizer("");
 		BufferedReader in;
 
@@ -64,13 +64,13 @@ public class tree_orders {
 	}
 
 	static public void main(String[] args) throws IOException {
-            new Thread(null, new Runnable() {
-                    public void run() {
-                        try {
-                            new tree_orders().run();
-                        } catch (IOException e) {
-                        }
-                    }
+		new Thread(null, new Runnable() {
+			public void run() {
+				try {
+					new tree_orders().run();
+				} catch (IOException e) {
+				}
+			}
                 }, "1", 1 << 26).start();
 	}
 
