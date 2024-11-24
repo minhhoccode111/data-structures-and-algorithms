@@ -2,6 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 
+/*
+my small test cases:
+diff -b <(dotnet run <test/1) <(cat test/1.a)
+diff -b <(dotnet run <test/2) <(cat test/2.a)
+
+course's test cases:
+diff -b <(dotnet run <tests/21) <(cat tests/21.a)
+*/
+
 class Program
 {
     static void Main()
@@ -18,6 +27,8 @@ class TreeOrders
 {
     private int n;
     private int[] key;
+
+    // left, right is actually index point back to key
     private int[] left;
     private int[] right;
     private List<int> result;
@@ -39,24 +50,60 @@ class TreeOrders
         }
     }
 
+    // LNR
     public List<int> InOrder()
     {
         result = new List<int>();
-        // Implement in-order traversal here
+        InOrder(0, result);
         return result;
     }
 
+    private void InOrder(int rootIndex, List<int> resultList)
+    {
+        if (rootIndex == -1)
+        {
+            return;
+        }
+        InOrder(left[rootIndex], resultList);
+        resultList.Add(key[rootIndex]);
+        InOrder(right[rootIndex], resultList);
+    }
+
+    // NLR
     public List<int> PreOrder()
     {
         result = new List<int>();
-        // Implement pre-order traversal here
+        PreOrder(0, result);
         return result;
     }
 
+    private void PreOrder(int rootIndex, List<int> resultList)
+    {
+        if (rootIndex == -1)
+        {
+            return;
+        }
+        resultList.Add(key[rootIndex]);
+        PreOrder(left[rootIndex], resultList);
+        PreOrder(right[rootIndex], resultList);
+    }
+
+    // LRN
     public List<int> PostOrder()
     {
         result = new List<int>();
-        // Implement post-order traversal here
+        PostOrder(0, result);
         return result;
+    }
+
+    private void PostOrder(int rootIndex, List<int> resultList)
+    {
+        if (rootIndex == -1)
+        {
+            return;
+        }
+        PostOrder(left[rootIndex], resultList);
+        PostOrder(right[rootIndex], resultList);
+        resultList.Add(key[rootIndex]);
     }
 }
