@@ -1,0 +1,9 @@
+command:
+    diff -b <(dotnet run <test/2) <(cat test/2.a)
+output:
+    <empty>
+
+command:
+    diff -b <(dotnet run <test/1) <(cat test/1.a)
+output:
+    <empty>
