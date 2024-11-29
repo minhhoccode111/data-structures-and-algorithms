@@ -31,3 +31,21 @@ for all v in V:
   if not visited(v):
     explore(G,v)
 ```
+
+## Generate arrays `pre` and `post`
+
+By define a simple counter `clock` init set to 1, which gets updated as follow
+
+```
+previsit(v)
+pre[v] = clock
+clock = clock + 1
+```
+
+```
+postvisit(v)
+post[v] = clock
+clock = clock + 1
+```
+
+**Property**: For any nodes `u` and `v`, the two intervals [pre[u], post[u]] and [pre[v], post[v]] are either disjoint or one is contained within the other
