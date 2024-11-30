@@ -11,8 +11,33 @@ using System.Collections.Generic;
 
 public class Acyclicity
 {
-    // 1: there is a cycle
-    // 0: there is no cycle
+
+    private static bool Explore(int node, List<int>[] adj, bool[] visited, bool[] path)
+    {
+        visited[node] = true;
+        path[node] = true;
+
+        foreach (int neighbor in adj[node])
+        {
+            if (path[neighbor])
+            {
+                return true;
+            }
+
+            if (!visited[neighbor])
+            {
+                // recursive call to explore neighbors
+                if (Explore(neighbor, adj, visited, path))
+                {
+                    return true;
+                }
+            }
+        }
+
+        path[node] = false;
+        return false;
+    }
+
     private static bool IsCycle(List<int>[] adj)
     {
         bool[] visited = new bool[adj.Length];
@@ -32,43 +57,21 @@ public class Acyclicity
         return false;
     }
 
-    private static bool Explore(int node, List<int>[] adj, bool[] visited, bool[] path)
-    {
-        visited[node] = true;
-        path[node] = true;
-
-        foreach (int neighbor in adj[node])
-        {
-            if (path[neighbor])
-            {
-                return true;
-            }
-
-            if (!visited[neighbor])
-            {
-                if (Explore(neighbor, adj, visited, path))
-                {
-                    return true;
-                }
-            }
-        }
-
-        path[node] = false;
-        return false;
-    }
-
     public static void Main(string[] args)
     {
+        // first line input indicate vertices and edges
         string[] firstLineInput = Console.ReadLine().Split(' ');
         int vertices = int.Parse(firstLineInput[0]);
         int edges = int.Parse(firstLineInput[1]);
         List<int>[] adjacencyList = new List<int>[vertices];
 
+        // init list of each vertex to store neighbors
         for (int i = 0; i < vertices; i++)
         {
             adjacencyList[i] = new List<int>();
         }
 
+        // loop through each edge to identify neighbors
         for (int i = 0; i < edges; i++)
         {
             string[] currentLineInput = Console.ReadLine().Split(' ');
@@ -77,10 +80,12 @@ public class Acyclicity
             adjacencyList[x - 1].Add(y - 1);
         }
 
+        // print 1 if there is a cycle
         if (IsCycle(adjacencyList))
         {
             Console.WriteLine(1);
         }
+        // else print 0
         else
         {
             Console.WriteLine(0);
