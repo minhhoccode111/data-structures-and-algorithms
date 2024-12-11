@@ -1,3 +1,0 @@
-# Undirected graphs
-
-**Definition**

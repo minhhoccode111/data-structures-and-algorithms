@@ -52,3 +52,11 @@ The 2011 German outbreak represented an early example of epidemiologists collabo
 - Introduction to Algorithms (3rd Edition). Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein
 - Advanced Dynamic Programming Lecture Notes. Jeff Erickson
 - Bioinformatics Algorithms: An Active Learning Approach. Phillip Compeau, Pavel Pevzner
+
+## How to test programs
+
+Example test with input file `1` to match the output file `1.a`
+
+```
+diff <(dotnet run test/1) <(cat test/1.a)
+```
