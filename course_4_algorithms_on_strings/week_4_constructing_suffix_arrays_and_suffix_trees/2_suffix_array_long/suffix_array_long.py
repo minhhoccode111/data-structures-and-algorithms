@@ -1,20 +1,117 @@
 # python3
+
+"""
+
+diff <(python3 suffix_array_long.py < test/1) <(cat test/1.a)
+diff <(python3 suffix_array_long.py < test/2) <(cat test/2.a)
+diff <(python3 suffix_array_long.py < test/3) <(cat test/3.a)
+diff <(python3 suffix_array_long.py < test/4) <(cat test/4.a)
+
+"""
+
+
 import sys
+
+ALPHABET_SIZE = 5
+
+
+def get_index(c):
+    """map characters to indices"""
+    if c == "A":
+        return 1
+    elif c == "C":
+        return 2
+    elif c == "G":
+        return 3
+    elif c == "T":
+        return 4
+    else:
+        return 0
+
+
+def counting_characters_sort(s):
+    """sort characters using counting sort"""
+    order = [0] * len(s)
+    count = [0] * ALPHABET_SIZE
+
+    for c in s:
+        count[get_index(c)] += 1
+
+    for j in range(1, ALPHABET_SIZE):
+        count[j] += count[j - 1]
+
+    for i in range(len(s) - 1, -1, -1):
+        c = s[i]
+        count[get_index(c)] -= 1
+        order[count[get_index(c)]] = i
+
+    return order
+
+
+def compute_character_classes(s, order):
+    """compute equivalence classes for characters"""
+    cclass = [0] * len(s)
+
+    for i in range(1, len(s)):
+        if s[order[i]] != s[order[i - 1]]:
+            cclass[order[i]] = cclass[order[i - 1]] + 1
+        else:
+            cclass[order[i]] = cclass[order[i - 1]]
+
+    return cclass
+
+
+def sort_doubled(s, L, order, cclass):
+    """sort doubled cyclic shifts"""
+    count = [0] * len(s)
+    new_order = [0] * len(s)
+
+    for cl in cclass:
+        count[cl] += 1
+
+    for j in range(1, len(s)):
+        count[j] += count[j - 1]
+
+    for i in range(len(s) - 1, -1, -1):
+        start = (order[i] - L + len(s)) % len(s)
+        cl = cclass[start]
+        count[cl] -= 1
+        new_order[count[cl]] = start
+
+    return new_order
+
+
+def update_classes(new_order, cclass, L):
+    """update equivalence classes"""
+    n = len(new_order)
+    new_cclass = [0] * n
+
+    for i in range(1, n):
+        cur, prev = new_order[i], new_order[i - 1]
+        mid, mid_prev = (cur + L) % n, (prev + L) % n
+
+        if cclass[cur] != cclass[prev] or cclass[mid] != cclass[mid_prev]:
+            new_cclass[cur] = new_cclass[prev] + 1
+        else:
+            new_cclass[cur] = new_cclass[prev]
+
+    return new_cclass
 
 
 def build_suffix_array(text):
-  """
-  Build suffix array of the string text and
-  return a list result of the same length as the text
-  such that the value result[i] is the index (0-based)
-  in text where the i-th lexicographically smallest
-  suffix of text starts.
-  """
-  result = []
-  # Implement this function yourself
-  return result
+    """construct the suffix array"""
+    order = counting_characters_sort(text)
+    cclass = compute_character_classes(text, order)
+    L = 1
+
+    while L < len(text):
+        order = sort_doubled(text, L, order, cclass)
+        cclass = update_classes(order, cclass, L)
+        L *= 2
+
+    return order
 
 
-if __name__ == '__main__':
-  text = sys.stdin.readline().strip()
-  print(" ".join(map(str, build_suffix_array(text))))
+if __name__ == "__main__":
+    text = sys.stdin.readline().strip()
+    print(" ".join(map(str, build_suffix_array(text))))
