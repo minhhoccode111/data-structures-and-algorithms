@@ -1,3 +1,4 @@
+# python3
 import sys
 
 
@@ -13,11 +14,11 @@ import sys
 
 
 def BWT(text):
-    # Generate all rotations of the text
+    # generate all rotations of the text
     rotations = [text[i:] + text[:i] for i in range(len(text))]
-    # Sort the rotations lexicographically
+    # sort the rotations lexicographically
     rotations.sort()
-    # Construct the result by taking the last character of each rotation
+    # construct the result by taking the last character of each rotation
     result = "".join(rotation[-1] for rotation in rotations)
     return result
 
@@ -25,4 +26,3 @@ def BWT(text):
 if __name__ == "__main__":
     text = sys.stdin.readline().strip()
     print(BWT(text))
-
