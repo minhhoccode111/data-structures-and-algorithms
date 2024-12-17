@@ -53,10 +53,12 @@ The 2011 German outbreak represented an early example of epidemiologists collabo
 - Advanced Dynamic Programming Lecture Notes. Jeff Erickson
 - Bioinformatics Algorithms: An Active Learning Approach. Phillip Compeau, Pavel Pevzner
 
-## How to test programs
+## Problems
 
-Example test with input file `1` to match the output file `1.a`
+Every problem description can be found in `/resources`
+
+Solutions and test files can be tested like this
 
 ```
-diff <(dotnet run test/1) <(cat test/1.a)
+diff <(python solution.py test/1) <(cat test/1.a)
 ```
