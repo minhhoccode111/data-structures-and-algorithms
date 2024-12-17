@@ -1,0 +1,42 @@
+Command:
+
+    diff <(python3 diet.py < test/01) <(cat test/01.a)
+    diff <(python3 diet.py < test/02) <(cat test/02.a)
+    diff <(python3 diet.py < test/03) <(cat test/03.a)
+    diff <(python3 diet.py < test/04) <(cat test/04.a)
+    diff <(python3 diet.py < test/05) <(cat test/05.a)
+    diff <(python3 diet.py < test/06) <(cat test/06.a)
+    diff <(python3 diet.py < test/36) <(cat test/36.a)
+    diff <(python3 diet.py < test/43) <(cat test/43.a)
+
+Output: (rounding format)
+    diff --git a/dev/fd/63 b/dev/fd/62
+    --- a/dev/fd/63
+    +++ b/dev/fd/62
+    @@ -1,2 +1,2 @@
+    Bounded solution
+    0.000000000000000000-0.000000000000000000 2.000000000000000000
+    diff --git a/dev/fd/63 b/dev/fd/62
+    --- a/dev/fd/63
+    +++ b/dev/fd/62
+    @@ -1,2 +1,2 @@
+    Bounded solution
+    167.769230769230773603167.769230769230770000
+    diff --git a/dev/fd/63 b/dev/fd/62
+    --- a/dev/fd/63
+    +++ b/dev/fd/62
+    @@ -1,2 +1,2 @@
+    Bounded solution
+    331.269230769230773603331.269230769230770000
+    diff --git a/dev/fd/63 b/dev/fd/62
+    --- a/dev/fd/63
+    +++ b/dev/fd/62
+    @@ -1,2 +1,2 @@
+    Bounded solution
+    0.000000000000000000-0.000000000000000000
+    diff --git a/dev/fd/63 b/dev/fd/62
+    --- a/dev/fd/63
+    +++ b/dev/fd/62
+    @@ -1,2 +1,2 @@
+    Bounded solution
+    87.97727272727273373287.977272727272734000
