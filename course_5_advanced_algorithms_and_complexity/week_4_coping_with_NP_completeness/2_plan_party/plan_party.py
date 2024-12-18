@@ -1,11 +1,11 @@
-# uses python3
+# python3
 
 import sys
 import threading
 
-# This code is used to avoid stack overflow issues
-sys.setrecursionlimit(10**6)  # max depth of recursion
-threading.stack_size(2**26)  # new thread will get stack of such size
+
+sys.setrecursionlimit(10**6)
+threading.stack_size(2**26)
 
 
 class Vertex:
@@ -24,30 +24,47 @@ def ReadTree():
     return tree
 
 
-def dfs(tree, vertex, parent):
-    for child in tree[vertex].children:
-        if child != parent:
-            dfs(tree, child, vertex)
+def funParty(vertex, parent):
+    global D
+    if D[vertex] == 10**9:
+        if tree[vertex].children == [parent]:
+            D[vertex] = tree[vertex].weight
+        else:
+            m = tree[vertex].weight
+            for u in tree[vertex].children:
+                if u != parent:
+                    for w in tree[u].children:
+                        if D[w] != 10**9:
+                            m += D[w]
+            m2 = 0
+            for u in tree[vertex].children:
+                if u != parent:
+                    m2 += D[u]
+            D[vertex] = max(m, m2)
+    return D[vertex]
 
-    # This is a template function for processing a tree using depth-first search.
-    # Write your code here.
-    # You may need to add more parameters to this function for child processing.
+
+def dfs(tree, vertex, parent):
+    global visited
+    visited[vertex] = True
+    for child in tree[vertex].children:
+        if not visited[child] and child != parent:
+            dfs(tree, child, vertex)
+    funParty(vertex, parent)
 
 
 def MaxWeightIndependentTreeSubset(tree):
-    size = len(tree)
-    if size == 0:
-        return 0
     dfs(tree, 0, -1)
-    # You must decide what to return.
-    return 0
+    return D[0]
 
 
 def main():
-    tree = ReadTree()
     weight = MaxWeightIndependentTreeSubset(tree)
     print(weight)
 
 
-# This is to avoid stack overflow issues
+tree = ReadTree()
+size = len(tree)
+D = [10**9 for i in range(size)]
+visited = [False for i in range(size)]
 threading.Thread(target=main).start()
