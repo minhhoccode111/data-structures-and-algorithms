@@ -1,35 +1,24 @@
-#!/bin/env python3
+# python3
+
+# Compute the nth Fibonacci number
 
 
-"""
+# efficient
+# bigO (n)
+def fibonacci(n):
+    # 2 base cases
+    arr = [0, 1]
 
-diff <(python fibonacci.py < test/1) <(cat test/1.a)
-diff <(python fibonacci.py < test/2) <(cat test/2.a)
-diff <(python fibonacci.py < test/3) <(cat test/3.a)
-diff <(python fibonacci.py < test/4) <(cat test/4.a)
-diff <(python fibonacci.py < test/5) <(cat test/5.a)
+    # loop from 2 to n
+    for i in range(2, n + 1):
+        # can't because python doesn't support dynamic arrays like javascript
+        # arr[n] = arr[i - 1] + arr[i - 2]
+        arr.append(arr[i - 1] + arr[i - 2])
 
-"""
-
-
-def fibonacci_number(n):
-    if n <= 1:
-        return n
-
-    a = 0
-    b = 1
-    i = n - 2
-
-    while i > 0:
-        i -= 1
-        c = a + b
-        a = b
-        b = c
-
-    return a + b
+    # return the last element in the array
+    return arr[n]
 
 
-# prevent the main function from running when module is imported
 if __name__ == "__main__":
     input_n = int(input())
-    print(fibonacci_number(input_n))
+    print(fibonacci(input_n))
