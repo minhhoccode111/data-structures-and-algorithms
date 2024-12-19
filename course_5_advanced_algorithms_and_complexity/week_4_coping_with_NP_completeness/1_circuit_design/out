@@ -4,9 +4,4 @@ Command:
     diff <(python3 circuit_design.py < test/2) <(cat test/2.a)
 
 Output:
-    diff --git a/dev/fd/63 b/dev/fd/62
-    --- a/dev/fd/63
-    +++ b/dev/fd/62
-    @@ -1,2 +1,2 @@
-    SATISFIABLE
-    -1 -21 2 -3
+    <empty>

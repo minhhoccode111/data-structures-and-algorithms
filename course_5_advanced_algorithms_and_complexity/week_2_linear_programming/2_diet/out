@@ -10,33 +10,4 @@ Command:
     diff <(python3 diet.py < test/43) <(cat test/43.a)
 
 Output: (rounding format)
-    diff --git a/dev/fd/63 b/dev/fd/62
-    --- a/dev/fd/63
-    +++ b/dev/fd/62
-    @@ -1,2 +1,2 @@
-    Bounded solution
-    0.000000000000000000-0.000000000000000000 2.000000000000000000
-    diff --git a/dev/fd/63 b/dev/fd/62
-    --- a/dev/fd/63
-    +++ b/dev/fd/62
-    @@ -1,2 +1,2 @@
-    Bounded solution
-    167.769230769230773603167.769230769230770000
-    diff --git a/dev/fd/63 b/dev/fd/62
-    --- a/dev/fd/63
-    +++ b/dev/fd/62
-    @@ -1,2 +1,2 @@
-    Bounded solution
-    331.269230769230773603331.269230769230770000
-    diff --git a/dev/fd/63 b/dev/fd/62
-    --- a/dev/fd/63
-    +++ b/dev/fd/62
-    @@ -1,2 +1,2 @@
-    Bounded solution
-    0.000000000000000000-0.000000000000000000
-    diff --git a/dev/fd/63 b/dev/fd/62
-    --- a/dev/fd/63
-    +++ b/dev/fd/62
-    @@ -1,2 +1,2 @@
-    Bounded solution
-    87.97727272727273373287.977272727272734000
+    <empty>
