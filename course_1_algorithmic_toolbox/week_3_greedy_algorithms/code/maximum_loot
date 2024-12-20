@@ -1,0 +1,8 @@
+MaximumLoot(W, Weights, Cost):
+if W = 0 or Weights is empty:
+    return 0
+m <- the index of the most expensive item
+amount <- min(W, Weights[m])
+value <- Cost[m].(amount/Weights[m])
+remove the m-th element from Weights and Cost
+return value + MaximumLoot(W - amount, Weights, Cost)

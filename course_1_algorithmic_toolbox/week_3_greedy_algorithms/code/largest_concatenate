@@ -1,0 +1,19 @@
+iterative
+
+LargestConcatenate(Numbers):
+result <- empty string
+while Numbers is not empty:
+    maxNumber <- largest among Numbers
+    append maxNumber to result
+    remove maxNumber from Numbers
+return result
+
+recursive
+
+LargestConcatenate(Numbers):
+if Numbers is empty:
+    return empty string
+maxNumber <- largest among Numbers
+remove maxNumber from Numbers
+return concatenate of maxNumber and largestConcatenate(Numbers)
+

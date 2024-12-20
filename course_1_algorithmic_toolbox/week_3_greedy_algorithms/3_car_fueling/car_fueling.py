@@ -2,29 +2,33 @@ from sys import stdin
 
 
 def min_refills(distance, tank, stops):
-    # add the destination as the final stop
+    # Add the final destination as the last stop
     stops.append(distance)
 
+    # Initialize the refill count to 0
     count = 0
+    # initial position
     last_position = 0
+    # Index to traverse the stops
     index = 0
 
-    # while last position plus tank is smaller than distance (which mean we still have to move)
+    # While the destination is not reachable with the current fuel
     while last_position + tank < distance:
-        # find the farthest stop within the tank range
+        # Set the current position as the last position
         current_position = last_position
-        # keep increase stops index while we still in the range of last position plus tank
+        # Find the farthest reachable stop
         while index < len(stops) and stops[index] <= last_position + tank:
-            # update current position
+            # Update the current position to this stop
             current_position = stops[index]
-            # increase stop index
+            # Move to the next stop
             index += 1
 
-        # if no further stop is reachable
+        # If no stop is reachable from the last position
         if current_position == last_position:
+            # destination is not reachable
             return -1
 
-        # move to the farthest reachable stop and refual
+        # Update the last position to the current position
         last_position = current_position
         count += 1
 
@@ -32,5 +36,6 @@ def min_refills(distance, tank, stops):
 
 
 if __name__ == "__main__":
+    # distance, tank capacity, and stops
     d, m, _, *stops = map(int, stdin.read().split())
     print(min_refills(d, m, stops))

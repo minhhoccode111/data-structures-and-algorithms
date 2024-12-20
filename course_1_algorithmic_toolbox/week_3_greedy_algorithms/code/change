@@ -1,0 +1,17 @@
+iterative
+
+Change(money, denominations):
+numCoins <- 0
+while money > 0:
+    maxCoin <- largest among Denomanations that does not exceed money
+    money <- money - maxCoin
+    numCoins <- numCoins + 1
+return numCoins
+
+recursive
+
+Change(money, denominations):
+if money = 0:
+    return 0
+maxCoin <- largest among Denomanations that does not exceed money
+return 1 + Change(money - maxCoin, denominations)
