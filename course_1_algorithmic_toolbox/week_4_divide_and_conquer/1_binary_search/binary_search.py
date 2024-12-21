@@ -1,3 +1,6 @@
+# python3
+
+
 def binary_search(keys, query):
     left, right = 0, len(keys) - 1
 

@@ -1,3 +1,6 @@
+# python3
+
+
 def major_ele(elements):
     # create a dict to count unique items
     dict = {}

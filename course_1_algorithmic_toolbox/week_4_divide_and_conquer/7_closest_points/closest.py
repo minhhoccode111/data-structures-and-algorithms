@@ -1,9 +1,12 @@
+# python3
+
+
 from collections import namedtuple
 from itertools import combinations
 from math import sqrt
 
 
-Point = namedtuple('Point', 'x y')
+Point = namedtuple("Point", "x y")
 
 
 def distance_squared(first_point, second_point):
@@ -14,13 +17,12 @@ def minimum_distance_squared_naive(points):
     min_distance_squared = float("inf")
 
     for p, q in combinations(points, 2):
-        min_distance_squared = min(min_distance_squared,
-                                   distance_squared(p, q))
+        min_distance_squared = min(min_distance_squared, distance_squared(p, q))
 
     return min_distance_squared
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     input_n = int(input())
     input_points = []
     for _ in range(input_n):
