@@ -1,0 +1,2 @@
+diff <(python3 max_pairwise_product.py < test/1) <(cat test/1.a)
+diff <(python3 max_pairwise_product.py < test/2) <(cat test/2.a)
