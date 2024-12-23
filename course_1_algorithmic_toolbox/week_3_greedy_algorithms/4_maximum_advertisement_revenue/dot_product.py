@@ -1,17 +1,14 @@
-from itertools import permutations
+# python3
 
-# TODO:
+# find the maximum dot product of two sequences of numbers
 
 
 def max_dot_product(first_sequence, second_sequence):
-    max_product = 0
-    for permutation in permutations(second_sequence):
-        dot_product = sum(
-            first_sequence[i] * permutation[i] for i in range(len(first_sequence))
-        )
-        max_product = max(max_product, dot_product)
-
-    return max_product
+    # sort both sequences in descending order
+    first_sequence.sort(reverse=True)
+    second_sequence.sort(reverse=True)
+    # compute the dot products from largest to smallest
+    return sum(p * c for p, c in zip(first_sequence, second_sequence))
 
 
 if __name__ == "__main__":
