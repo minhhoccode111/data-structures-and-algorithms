@@ -1,3 +1,8 @@
+# python3
+
+# find the index of the first occurrence of a key in a sorted array
+
+
 def binary_search(keys, query):
     left, right = 0, len(keys) - 1
     result = -1

@@ -1,3 +1,10 @@
+# python3
+
+# check whethera given sequence of numbers contains an element that appears more
+# than half of the times
+
+
+# NOTE: this solution is not done in a divide-and-conquer way
 def major_ele(elements):
     # create a dict to count unique items
     dict = {}
@@ -8,7 +15,7 @@ def major_ele(elements):
     threshold = len(elements) // 2
 
     # loop through dict to find the major
-    for key, value in dict.items():
+    for _, value in dict.items():
         if value >= threshold:
             return 1
 

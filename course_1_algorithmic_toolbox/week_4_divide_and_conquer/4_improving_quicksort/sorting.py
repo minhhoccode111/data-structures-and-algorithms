@@ -1,7 +1,11 @@
+# python3
+
+# sort a given sequence of numbers (that may containn duplicates) using a
+# modification of RandomizedQuickSort that works in O(n log n) time
+
 from random import randint
 
 
-# TODO: learn this
 def partition3(array, left, right):
     # save pivot value
     pivot = array[left]
@@ -10,7 +14,7 @@ def partition3(array, left, right):
     m1 = left
     m2 = left
 
-    # loop from the next-to-pivot to the end of the array, with pointer i
+    # loop from the next-to-pivot to the end of the virtual array, with pointer i
     for i in range(left + 1, right + 1):
         # if current element is less than pivot
         if array[i] < pivot:
@@ -24,9 +28,12 @@ def partition3(array, left, right):
             array[m1], array[m2] = array[m2], array[m1]
         # if current element is equal to pivot
         elif array[i] == pivot:
-            # move m2 pointer to the right one (rightmost position of element == pivot)
+            # only move m2 pointer to the right one (rightmost position of element == pivot)
             m2 += 1
             array[i], array[m2] = array[m2], array[i]
+            # so that the m1 pointer indicate the start of sequence elements == pivot
+            # and m2 indicate the end of sequence elements == pivot
+        # greater case do nothing because already on the right side anyway
 
     # Move pivot to its final position, which is m1 (rightmost position of elements < pivot)
     array[left], array[m1] = array[m1], array[left]
@@ -35,6 +42,8 @@ def partition3(array, left, right):
 
 
 def randomized_quick_sort(array, left, right):
+    # base case if the virtual sub array contains nothing
+    # a virtual array = array[left...right]
     if left >= right:
         return
     # a random index between left and right to use as pivot
@@ -52,8 +61,12 @@ def randomized_quick_sort(array, left, right):
 
 
 if __name__ == "__main__":
+    # n first line
     input_n = int(input())
+    # list of numbers
     elements = list(map(int, input().split()))
     assert len(elements) == input_n
-    randomized_quick_sort(elements, 0, len(elements) - 1)
+    # in-place sorting
+    randomized_quick_sort(elements, 0, input_n - 1)
+    # print the elements in the sorted list instead of the list itself
     print(*elements)

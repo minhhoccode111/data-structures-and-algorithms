@@ -1,0 +1,2 @@
+diff -b <(python3 majority_element.py < test/1) <(cat test/1.a)
+diff -b <(python3 majority_element.py < test/2) <(cat test/2.a)

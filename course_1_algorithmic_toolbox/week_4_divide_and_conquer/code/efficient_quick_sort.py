@@ -1,3 +1,6 @@
+# python3
+
+
 from random import randint
 
 from test_array import test_array
