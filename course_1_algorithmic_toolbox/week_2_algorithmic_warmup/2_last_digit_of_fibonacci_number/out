@@ -1,0 +1,7 @@
+diff <(python fibonacci_last_digit.py < test/1) <(cat test/1.a)
+diff <(python fibonacci_last_digit.py < test/2) <(cat test/2.a)
+diff <(python fibonacci_last_digit.py < test/3) <(cat test/3.a)
+
+diff <(python starter.py < test/1) <(cat test/1.a)
+diff <(python starter.py < test/2) <(cat test/2.a)
+diff <(python starter.py < test/3) <(cat test/3.a)

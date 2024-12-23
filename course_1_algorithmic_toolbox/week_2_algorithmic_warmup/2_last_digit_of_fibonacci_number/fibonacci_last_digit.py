@@ -1,34 +1,17 @@
-# def fibonacci_last_digit(n):
-#     if n <= 1:
-#         return n
-#
-#     # first 2 numbers in fibonacci sequence
-#     a = 0
-#     b = 1
-#     # use i to count backward
-#     i = n - 2
-#
-#     while i > 0:
-#         i -= 1
-#         # c: next sum of 2 previous number
-#         c = a + b
-#         # update a
-#         a = b
-#         # update b
-#         b = c
-#
-#     return (a + b) % 10
+# python3
 
-# import sys
+# Compute the last digit of the n-th Fibonacci number
 
-# sys.set_int_max_str_digits(999999999)
+# Use matrix exponentiation
+# See: Exercises 0.4 - p.18 - Algorithms 1st Edition
 
 
-def fibonacci_last_digit(n):
+def fib_huge(n):
+    # base case
     if n <= 1:
         return n
 
-    # Define the transformation matrix
+    # multiply two 2×2 matrices a and b
     def multiply_matrices(a, b):
         return [
             [
@@ -41,25 +24,41 @@ def fibonacci_last_digit(n):
             ],
         ]
 
+    # efficiently computes matrix^power using exponentiation by squaring
     def matrix_power(matrix, power):
-        result = [[1, 0], [0, 1]]  # Identity matrix
+        # start with identity matrix
+        # any matrix multiplied by identity matrix remains unchanged
+        result = [[1, 0], [0, 1]]
         while power > 0:
+            # if power is odd
             if power % 2 == 1:
+                # multiply the result matrix by current matrix
                 result = multiply_matrices(result, matrix)
+            # square the matrix (multiply it by itself) to reduce the number of
+            # multiplications needed
             matrix = multiply_matrices(matrix, matrix)
+            # halve the power
             power //= 2
+        # this reduce the time complexity to O(log n), making the algorithm
+        # efficient
         return result
 
-    # Fibonacci transformation matrix
+    # matrix representation of Fibonacci numbers
     fib_matrix = [[1, 1], [1, 0]]
+    """
+    the property of this matrix is:
+
+    M^n = [F<n+1>, F<n>  ]
+          [F<n>  , F<n-1>]
+
+    the (0, 0)- element of M^(n-1) gives F<n>, the n-th Fibonacci number
+    """
     result_matrix = matrix_power(fib_matrix, n - 1)
 
-    # print(f"n is: {n}")
-    # print(f"result is: {result_matrix[0][0]}")
-    # The nth Fibonacci number is in the [0][0] position of the result matrix
-    return result_matrix[0][0] % 10
+    return result_matrix[0][0]
 
 
 if __name__ == "__main__":
     n = int(input())
-    print(fibonacci_last_digit(n))
+    # mod 10 to get the last digit
+    print(fib_huge(n) % 10)
