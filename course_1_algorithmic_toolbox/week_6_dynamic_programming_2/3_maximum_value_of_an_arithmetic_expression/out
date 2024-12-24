@@ -1,0 +1,1 @@
+diff <(python placing_parentheses.py < test/1) <(cat test/1.a)
