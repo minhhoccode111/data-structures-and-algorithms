@@ -1,0 +1,6 @@
+diff <(python merging_tables.py < test/1) <(cat test/1.a)
+diff <(python merging_tables.py < test/2) <(cat test/2.a)
+
+those large files will be put in the `/tests` dir to be ignored by git
+
+diff <(python merging_tables.py < tests/116) <(cat tests/116.a)

@@ -1,0 +1,7 @@
+diff <(python job_queue.py < test/1) <(cat test/1.a)
+diff <(python job_queue.py < test/2) <(cat test/2.a)
+
+those large files will be put in the `/tests` dir to be ignored by git
+
+diff <(python job_queue.py < tests/02) <(cat tests/02.a)
+diff <(python job_queue.py < tests/08) <(cat tests/08.a)
