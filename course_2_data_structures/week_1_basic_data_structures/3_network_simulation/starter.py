@@ -1,7 +1,5 @@
 # python3
 
-# implement a program to simulate the processing of network packages
-
 from collections import namedtuple
 
 Request = namedtuple("Request", ["arrived_at", "time_to_process"])
@@ -12,28 +10,17 @@ class Buffer:
     def __init__(self, size):
         self.size = size
         self.finish_time = []
-        self.current_time = 0
 
     def process(self, request):
-        while self.finish_time and self.finish_time[0] <= request.arrived_at:
-            self.finish_time.pop(0)
-
-        self.current_time = max(self.current_time, request.arrived_at)
-
-        if len(self.finish_time) >= self.size:
-            return Response(True, -1)
-
-        if not self.finish_time:
-            start_time = request.arrived_at
-        else:
-            start_time = max(request.arrived_at, self.finish_time[-1])
-
-        self.finish_time.append(start_time + request.time_to_process)
-        return Response(False, start_time)
+        # write your code here
+        return Response(False, -1)
 
 
 def process_requests(requests, buffer):
-    return [buffer.process(request) for request in requests]
+    responses = []
+    for request in requests:
+        responses.append(buffer.process(request))
+    return responses
 
 
 def main():

@@ -1,0 +1,5 @@
+diff <(python stack_with_max.py < test/1) <(cat test/1.a)
+diff <(python stack_with_max.py < test/2) <(cat test/2.a)
+diff <(python stack_with_max.py < test/3) <(cat test/3.a)
+diff <(python stack_with_max.py < test/4) <(cat test/4.a)
+diff <(python stack_with_max.py < test/5) <(cat test/5.a)
