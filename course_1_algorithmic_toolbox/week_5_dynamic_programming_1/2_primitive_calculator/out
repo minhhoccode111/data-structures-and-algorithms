@@ -1,0 +1,8 @@
+diff <(python primitive_calculator.py < test/1) <(cat test/1.a)
+diff <(python primitive_calculator.py < test/2) <(cat test/2.a)
+
+diff <(python practice_0.py < test/1) <(cat test/1.a)
+diff <(python practice_0.py < test/2) <(cat test/2.a)
+
+diff <(python practice_1.py < test/1) <(cat test/1.a)
+diff <(python practice_1.py < test/2) <(cat test/2.a)

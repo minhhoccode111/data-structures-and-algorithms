@@ -1,3 +1,5 @@
+# python3
+
 # find the maximum product of two distinct numbers in a sequence of non-negative integers
 
 
