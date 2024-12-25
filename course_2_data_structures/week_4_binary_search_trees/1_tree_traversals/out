@@ -1,0 +1,6 @@
+diff <(python tree_orders.py < test/1) <(cat test/1.a)
+diff <(python tree_orders.py < test/2) <(cat test/2.a)
+
+those large files will be put in the `/tests` dir to be ignored by git
+
+diff <(python tree_orders.py < tests/21) <(cat tests/21.a)

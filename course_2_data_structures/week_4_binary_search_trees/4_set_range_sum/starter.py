@@ -1,11 +1,11 @@
 # python3
 
-# implement a data structure to store a set of integers and quickly compute
-# range sums
-
 from sys import stdin
 
+# Splay tree implementation
 
+
+# Vertex of a splay tree
 class Vertex:
     def __init__(self, key, sum, left, right, parent):
         (self.key, self.sum, self.left, self.right, self.parent) = (
@@ -56,16 +56,21 @@ def smallRotation(v):
 
 def bigRotation(v):
     if v.parent.left == v and v.parent.parent.left == v.parent:
+        # Zig-zig
         smallRotation(v.parent)
         smallRotation(v)
     elif v.parent.right == v and v.parent.parent.right == v.parent:
+        # Zig-zig
         smallRotation(v.parent)
         smallRotation(v)
     else:
+        # Zig-zag
         smallRotation(v)
         smallRotation(v)
 
 
+# Makes splay of the given vertex and makes
+# it the new root.
 def splay(v):
     if v == None:
         return None
@@ -77,6 +82,14 @@ def splay(v):
     return v
 
 
+# Searches for the given key in the tree with the given root
+# and calls splay for the deepest visited node after that.
+# Returns pair of the result and the new root.
+# If found, result is a pointer to the node with the given key.
+# Otherwise, result is a pointer to the node with the smallest
+# bigger key (next value in the order).
+# If the key is bigger than all keys in the tree,
+# then result is None.
 def find(root, key):
     v = root
     last = root
@@ -122,6 +135,8 @@ def merge(left, right):
     return right
 
 
+# Code that uses splay tree to solve the problem
+
 root = None
 
 
@@ -136,28 +151,24 @@ def insert(x):
 
 def erase(x):
     global root
-    if not search(x):
-        return
-    (left, right) = split(root, x + 1)
-    (left, middle) = split(left, x)
-    root = merge(left, right)
+    # Implement erase yourself
+    pass
 
 
 def search(x):
     global root
-    result, root = find(root, x)
-    if result is None or result.key != x:
-        return False
-    root = splay(result)
-    return True
+    # Implement find yourself
+
+    return False
 
 
 def sum(fr, to):
     global root
     (left, middle) = split(root, fr)
     (middle, right) = split(middle, to + 1)
-    ans = middle.sum if middle else 0
-    root = merge(merge(left, middle), right)
+    ans = 0
+    # Complete the implementation of sum
+
     return ans
 
 
