@@ -1,5 +1,2 @@
-command:
-    diff <(dotnet run <test/1) <(cat test/1.a)
-    diff <(dotnet run <test/2) <(cat test/2.a)
-output:
-    <empty>
+diff <(python acyclicity.py < test/1) <(cat test/1.a)
+diff <(python acyclicity.py < test/2) <(cat test/2.a)
