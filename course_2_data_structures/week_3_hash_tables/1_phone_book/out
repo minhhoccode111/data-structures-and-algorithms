@@ -1,0 +1,2 @@
+diff <(python phone_book.py < test/1) <(cat test/1.a)
+diff <(python phone_book.py < test/2) <(cat test/2.a)

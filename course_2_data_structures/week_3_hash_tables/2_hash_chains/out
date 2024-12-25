@@ -1,0 +1,3 @@
+diff <(python hash_chains.py < test/1) <(cat test/1.a)
+diff <(python hash_chains.py < test/2) <(cat test/2.a)
+diff <(python hash_chains.py < test/6) <(cat test/6.a)

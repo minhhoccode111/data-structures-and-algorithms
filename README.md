@@ -53,6 +53,8 @@ The 2011 German outbreak represented an early example of epidemiologists collabo
 - Advanced Dynamic Programming Lecture Notes. Jeff Erickson
 - Bioinformatics Algorithms: An Active Learning Approach. Phillip Compeau, Pavel Pevzner
 
+<!--TODO: list all suggested of the course here-->
+
 ## Problems
 
 Every problem description can be found in `/resources`

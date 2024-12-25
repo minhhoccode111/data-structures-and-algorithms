@@ -1,0 +1,1 @@
+diff <(python matching_with_mismatches.py < test/1) <(cat test/1.a)

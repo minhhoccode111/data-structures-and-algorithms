@@ -1,0 +1,1 @@
+diff <(python common_substring.py < test/1) <(cat test/1.a)
