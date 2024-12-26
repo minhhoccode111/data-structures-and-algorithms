@@ -1,0 +1,2 @@
+diff <(python shortest_paths.py < test/1) <(cat test/1.a)
+diff <(python shortest_paths.py < test/2) <(cat test/2.a)

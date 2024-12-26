@@ -1,4 +1,1 @@
-command:
-    diff <(dotnet run <test/1) <(cat test/1.a)
-output:
-    <empty>
+diff <(python negative_cycle.py < test/1) <(cat test/1.a)
