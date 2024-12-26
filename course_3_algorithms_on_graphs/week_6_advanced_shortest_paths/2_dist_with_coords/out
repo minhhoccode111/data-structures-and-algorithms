@@ -1,0 +1,9 @@
+diff -b <(python dist_with_coords.py < test/01) <(cat test/01.a)
+diff -b <(python dist_with_coords.py < test/02) <(cat test/02.a)
+diff -b <(python dist_with_coords.py < test/03) <(cat test/03.a)
+
+# debug large output
+
+diff -b <(python dist_with_coords.py < test/01) <(cat test/01.a) > out1.txt
+diff -b <(python dist_with_coords.py < test/02) <(cat test/02.a) > out2.txt
+diff -b <(python dist_with_coords.py < test/03) <(cat test/03.a) > out3.txt

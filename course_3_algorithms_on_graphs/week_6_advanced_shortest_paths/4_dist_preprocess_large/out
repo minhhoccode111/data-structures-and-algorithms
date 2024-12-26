@@ -1,0 +1,2 @@
+diff <(python dist_preprocess_large.py < test/1) <(cat test/1.a)
+diff <(python dist_preprocess_large.py < test/2) <(cat test/2.a)
