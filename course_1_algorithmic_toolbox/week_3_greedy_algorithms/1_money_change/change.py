@@ -4,10 +4,8 @@
 # coins with denominations 1, 5, and 10.
 
 
-# long solution
 def long_change(money):
     numCoins = 0
-    # while current money is still greater than 0
     while money > 0:
         if money >= 10:
             money -= 10
@@ -15,7 +13,6 @@ def long_change(money):
             money -= 5
         else:
             money -= 1
-        # increase coins to count
         numCoins += 1
     return numCoins
 

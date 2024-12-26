@@ -10,7 +10,7 @@ def binary_search(keys, query):
         mid = (left + right) // 2
         if keys[mid] == query:
             result = mid
-            right = mid - 1  # to find the first occurence, mid + 1 if last
+            right = mid - 1
         elif keys[mid] < query:
             left = mid + 1
         else:

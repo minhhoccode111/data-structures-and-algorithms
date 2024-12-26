@@ -4,10 +4,8 @@
 
 
 def max_dot_product(first_sequence, second_sequence):
-    # sort both sequences in descending order
     first_sequence.sort(reverse=True)
     second_sequence.sort(reverse=True)
-    # compute the dot products from largest to smallest
     return sum(p * c for p, c in zip(first_sequence, second_sequence))
 
 

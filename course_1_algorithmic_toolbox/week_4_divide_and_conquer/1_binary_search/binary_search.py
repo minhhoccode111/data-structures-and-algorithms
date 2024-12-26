@@ -7,9 +7,7 @@ def binary_search(keys, query):
     left, right = 0, len(keys) - 1
 
     while left <= right:
-        # get the middle base on current left and right
         mid = (left + right) // 2
-        #
         if keys[mid] == query:
             return mid
         if keys[mid] > query:
@@ -17,7 +15,6 @@ def binary_search(keys, query):
         else:
             left = mid + 1
 
-    # if not found the target, return -1
     return -1
 
 

@@ -1,0 +1,6 @@
+the property of this matrix is:
+
+    M^n = [F<n+1>, F<n>  ]
+          [F<n>  , F<n-1>]
+
+the (0, 0)- element of M^(n-1) gives F<n>, the n-th Fibonacci number
