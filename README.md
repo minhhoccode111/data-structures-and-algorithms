@@ -1,59 +1,141 @@
 # Data Structures and Algorithms Specialization Coursera
 
-This specialization is a mix of theory and practice: you will learn algorithmic techniques for solving various computational problems and will implement about 100 algorithmic coding problems in a programming language of your choice. No other online course in Algorithms even comes close to offering you a wealth of programming challenges that you may face at your next job interview. To prepare you, we invested over 3000 hours into designing our challenges as an alternative to multiple choice questions that you usually find in MOOCs. Sorry, we do not believe in multiple choice questions when it comes to learning algorithms...or anything else in computer science! For each algorithm you develop and implement, we designed multiple tests to check its correctness and running time — you will have to debug your programs without even knowing what these tests are! It may sound difficult, but we believe it is the only way to truly understand how the algorithms work and to master the art of programming. The specialization contains two real-world projects: Big Networks and Genome Assembly. You will analyze both road networks and social networks and will learn how to compute the shortest route between New York and San Francisco (1000 times faster than the standard shortest path algorithms!) Afterwards, you will learn how to assemble genomes from millions of short fragments of DNA and how assembly algorithms fuel recent developments in personalized medicine.
-
 [Data Structures and Algorithms Specialization](https://www.coursera.org/specializations/data-structures-algorithms)
-
-Skills Gained:
-`Algorithms` `Data Structure` `Debugging` `Graph Theory` `Software Testing` `Binary Search Tree` `Computer Programming`
 
 ## Course 1 - [Algorithmic Toolbox](https://www.coursera.org/learn/algorithmic-toolbox)
 
-The course covers basic algorithmic techniques and ideas for computational problems arising frequently in practical applications: sorting and searching, divide and conquer, greedy algorithms, dynamic programming. We will learn a lot of theory: how to sort data and how it helps for searching; how to break a large problem into pieces and solve them recursively; when it makes sense to proceed greedily; how dynamic programming is used in genomic studies. You will practice solving computational problems, designing new algorithms, and implementing solutions efficiently (so that they run in less than a second).
-
 ## Course 2 - [Data Structures](https://www.coursera.org/learn/data-structures)
-
-A good algorithm usually comes together with a set of good data structures that allow the algorithm to manipulate the data efficiently. In this course, we consider the common data structures that are used in various computational problems. You will learn how these data structures are implemented in different programming languages and will practice implementing them in our programming assignments. This will help you to understand what is going on inside a particular built-in implementation of a data structure and what to expect from it. You will also learn typical use cases for these data structures.
-
-A few examples of questions that we are going to cover in this class are the following:
-
-1. What is a good strategy of resizing a dynamic array?
-2. How priority queues are implemented in C++, Java, and Python?
-3. How to implement a hash table so that the amortized running time of all operations is O(1) on average?
-4. What are good strategies to keep a binary tree balanced?
 
 ## Course 3 - [Algorithms on Graphs](https://www.coursera.org/learn/algorithms-on-graphs)
 
-If you have ever used a navigation service to find optimal route and estimate time to destination, you've used algorithms on graphs. Graphs arise in various real-world situations as there are road networks, computer networks and, most recently, social networks! If you're looking for the fastest time to get to work, cheapest way to connect set of computers into a network or efficient algorithm to automatically find communities and opinion leaders in Facebook, you're going to work with graphs and algorithms on graphs.
-
-In this course, you will first learn what a graph is and what are some of the most important properties. Then you'll learn several ways to traverse graphs and how you can do useful things while traversing the graph in some order. We will then talk about shortest paths algorithms — from the basic ones to those which open door for 1000000 times faster algorithms used in Google Maps and other navigational services. You will use these algorithms if you choose to work on our Fast Shortest Routes industrial capstone project. We will finish with minimum spanning trees which are used to plan road, telephone and computer networks and also find applications in clustering and approximate algorithms.
-
 ## Course 4 - [Algorithms on Strings](https://www.coursera.org/learn/algorithms-on-strings)
-
-World and internet is full of textual information. We search for information using textual queries, we read websites, books, e-mails. All those are strings from the point of view of computer science. To make sense of all that information and make search efficient, search engines use many string algorithms. Moreover, the emerging field of personalized medicine uses many search algorithms to find disease-causing mutations in the human genome.
 
 ## Course 5 - [Advanced Algorithms and Complexity](https://www.coursera.org/learn/advanced-algorithms-and-complexity)
 
-You've learned the basic algorithms now and are ready to step into the area of more complex problems and algorithms to solve them. Advanced algorithms build upon basic ones and use new ideas. We will start with networks flows which are used in more typical applications such as optimal matchings, finding disjoint paths and flight scheduling as well as more surprising ones like image segmentation in computer vision. We then proceed to linear programming with applications in optimizing budget allocation, portfolio optimization, finding the cheapest diet satisfying all requirements and many others. Next we discuss inherently hard problems for which no exact good solutions are known (and not likely to be found) and how to solve them in practice. We finish with a soft introduction to streaming algorithms that are heavily used in Big Data processing. Such algorithms are usually designed to be able to process huge datasets without being able even to store a dataset.
-
 ## Course 6 - [Genome Assembly Programming Challenge](https://www.coursera.org/learn/assembling-genomes)
-
-In Spring 2011, thousands of people in Germany were hospitalized with a deadly disease that started as food poisoning with bloody diarrhea and often led to kidney failure. It was the beginning of the deadliest outbreak in recent history, caused by a mysterious bacterial strain that we will refer to as E. coli X. Soon, German officials linked the outbreak to a restaurant in Lübeck, where nearly 20% of the patrons had developed bloody diarrhea in a single week. At this point, biologists knew that they were facing a previously unknown pathogen and that traditional methods would not suffice – computational biologists would be needed to assemble and analyze the genome of the newly emerged pathogen.
-
-To investigate the evolutionary origin and pathogenic potential of the outbreak strain, researchers started a crowdsourced research program. They released bacterial DNA sequencing data from one of a patient, which elicited a burst of analyses carried out by computational biologists on four continents. They even used GitHub for the project: <https://github.com/ehec-outbreak-crowdsourced/BGI-data-analysis/wiki>
-
-The 2011 German outbreak represented an early example of epidemiologists collaborating with computational biologists to stop an outbreak. In this Genome Assembly Programming Challenge, you will follow in the footsteps of the bioinformaticians investigating the outbreak by developing a program to assemble the genome of the E. coli X from millions of overlapping substrings of the E.coli X genome.
 
 ## References
 
+- Algorithms (1st Edition). Sanjoy Dasgupta, Christos Papadimitriou, and Umesh Vazirani {1}
+- Introduction to Algorithms (3rd Edition). Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein {2}
+- Bioinformatics Algorithms: An Active Learning Approach. Phillip Compeau, Pavel Pevzner {3}
+- [Notes on Data Structures and Programming Techniques (CPSC 223, Spring 2022)](https://www.cs.yale.edu/homes/aspnes/classes/223/notes.html) {4}
+- Advanced Dynamic Programming Lecture Notes. Jeff Erickson {5}
+- Algorithms on Strings, Trees and Sequences: Computer Science and Computational Biology (1st Edition). Dan Gusfield. {6}
+- Algorithm design (1st Edition). Addison-Wesley, Jon M. Kleinberg and Eva Tardos. {7}
 - [Learn Python In Y Minutes](https://learnxinyminutes.com/docs/python/)
 - [Discrete Mathematics Lecture notes by László Lovász, Yale University](https://cims.nyu.edu/~regev/teaching/discrete_math_fall_2005/dmbook.pdf)
-- Algorithms (1st Edition). Sanjoy Dasgupta, Christos Papadimitriou, and Umesh Vazirani
-- Introduction to Algorithms (3rd Edition). Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein
-- Advanced Dynamic Programming Lecture Notes. Jeff Erickson
-- Bioinformatics Algorithms: An Active Learning Approach. Phillip Compeau, Pavel Pevzner
 
-<!--TODO: list all suggested of the course here-->
+<details>
+<summary><strong>Reading List Chapters</strong></summary>
+
+- Course 1: Algorithmic Toolbox
+  - Week 1: Intro
+  - Week 2: Warm-up
+    - {1}: 0.2
+    - {1}: 1.2.3
+    - {2}: 31.1
+    - {1}: 0.3
+  - Week 3: Greedy Algorithms
+  - Week 4: Divide and Conquer
+    - {1}: 2.1
+    - {1}: 2.2
+    - {1}: 2.3
+    - {2}: 7
+  - Week 5: Dynamic Programming 1
+    - {3}: Chapter 5: Intro to Dynamic Programming (P.236)
+    - {1}: 6.3
+    - {3}: Chapter 5: How Do We Compare Biological Sequences (optional)
+    - {5}: Advanced Dynamic Programming Notes (optional)
+  - Week 6: Dynamic Programming 2
+    - {1}: 6.4
+- Course 2: Data Structures
+  - Week 1: Basic Data Structures
+    - {2}: 10.2
+    - {2}: 10.1
+    - {2}: 10.4
+  - Week 2: Dynamic Arrays and Amortized Analysis
+    - {2}: 17
+  - Week 3: Priority Queues and Disjoint Sets
+    - {2}: 6
+    - {2}: 6.4
+    - {2}: 21.1
+    - {2}: 21.2
+    - {1}: 5.1.4
+  - Week 4: Hash Tables
+    - {1}: 1.5.1
+    - {2}: 11.1
+    - {2}: 11.2
+    - {1}: 1.5
+    - {2}: 11.3
+    - {2}: 32.1
+    - {2}: 32.2
+  - Week 5: Binary Search Trees
+    - {2}: 12
+    - {4}: 5.11.1
+    - {4}: 5.11.2
+    - {o}: [AVL Trees](https://en.wikipedia.org/wiki/AVL_tree)
+  - Week 6: Binary Search Trees 2
+    - {2}: 14.1
+    - {2}: 14.2
+    - {4}: 5.11.6
+    - {o}: [Self-Adjusting Binary Search Trees](https://www.cs.cmu.edu/~sleator/papers/self-adjusting.pdf)
+- Course 3: Algorithms on Graphs
+  - Week 1: Decomposition of Graphs 1
+    - {1}: 3.1
+    - {1}: 3.2
+  - Week 2: Decomposition of Graphs 2
+    - {1}: 3.3
+    - {1}: 3.4
+  - Week 3: Paths in Graphs 1
+    - {1}: 4.1
+    - {1}: 4.2
+  - Week 4: Paths in Graphs 2
+    - {1}: 4.3
+    - {1}: 4.4
+    - {1}: 4.6
+  - Week 5: Minimum Spanning Trees
+    - {1}: 5.1
+  - Week 6: Advanced Shortest Paths Project (optional)
+- Course 4: Algorithms on Strings
+  - Week 1: Suffix Trees
+    - {3}: Chapter 3: How Do We Assemble Genomes
+    - {3}: Chapter 9: How Do We Locate Disease-Causing Mutations
+  - Week 2: Burrows Wheeler Transform and Suffix Arrays
+    - {3}: Chapter 3: How Do We Assemble Genomes
+    - {3}: Chapter 9: How Do We Locate Disease-Causing Mutations
+  - Week 3: Knuth-Morris-Pratt Algorithm
+    - {6}: 1
+    - {6}: 2.3
+    - {6}: 3.3
+  - Week 4: Constructing Suffix Arrays and Suffix Trees
+    - {6}: 4
+    - {3}: ∞
+- Course 5: Advanced Algorithms and Complexity
+  - Week 1: Flows in Networks
+    - {1}: 7.1
+    - {1}: 7.2
+    - {1}: 7.3
+    - {7}: 7
+    - {2}: 26
+  - Week 2: Linear Programming
+    - {1}: 7
+    - {2}: 29
+  - Week 3: NP-Complete Problems
+    - {1}: 8
+    - {7}: 8
+    - {2}: 34
+  - Week 4: Coping with NP-Completeness
+    - {1}: 9
+    - {7}: 10
+    - {3}: 35
+  - Week 5: Streaming Algorithms (optional)
+- Course 6: Genome Assembly Programming Challenge
+  - Week 1: The 2011 European E. coli Outbreak
+  - Week 2: Assembling Genomes Using de Bruijn Graphs
+  - Week 3: Genome Assembly Faces Real Sequencing Data
+
+</details>
 
 ## Problems
 
@@ -61,6 +143,6 @@ Every problem description can be found in `/resources`
 
 Solutions and test files can be tested like this
 
-```
-diff <(python solution.py test/1) <(cat test/1.a)
+```sh
+diff <(python3 solution.py test/1) <(cat test/1.a)
 ```
