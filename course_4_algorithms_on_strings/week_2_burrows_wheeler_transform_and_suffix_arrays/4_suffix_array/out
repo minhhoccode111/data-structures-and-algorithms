@@ -1,0 +1,3 @@
+diff -b <(python3 suffix_array.py < test/1) <(cat test/1.a)
+diff -b <(python3 suffix_array.py < test/2) <(cat test/2.a)
+diff -b <(python3 suffix_array.py < test/3) <(cat test/3.a)
