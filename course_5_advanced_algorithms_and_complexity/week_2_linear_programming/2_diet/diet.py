@@ -1,4 +1,10 @@
 # python3
+
+
+# implement an algorithm for solving linear programming with only a few
+# inequalities and apply it to determine the optimal diet
+
+
 from sys import stdin
 import itertools
 import copy

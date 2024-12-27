@@ -1,0 +1,5 @@
+diff <(python3 ad_allocation.py < test/01) <(cat test/01.a)
+diff <(python3 ad_allocation.py < test/02) <(cat test/02.a)
+diff <(python3 ad_allocation.py < test/03) <(cat test/03.a)
+diff <(python3 ad_allocation.py < test/04) <(cat test/04.a)
+diff <(python3 ad_allocation.py < test/05) <(cat test/05.a)

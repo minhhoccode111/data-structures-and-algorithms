@@ -1,8 +1,5 @@
 # python3
 
-# apply Gaussian Elimination to infer the energy values of ingredients given a
-# restaurant menu with calorie counts and ingredient lists provided for each item
-
 EPS = 1e-6
 PRECISION = 20
 
@@ -31,16 +28,13 @@ def ReadEquation():
 
 
 def SelectPivotElement(a, used_rows, used_columns):
-    size = len(a)
+    # This algorithm selects the first free element.
+    # You'll need to improve it to pass the problem.
     pivot_element = Position(0, 0)
-    max_value = -1.0
-    for row in range(size):
-        if not used_rows[row]:
-            for column in range(size):
-                if not used_columns[column] and abs(a[row][column]) > max_value:
-                    max_value = abs(a[row][column])
-                    pivot_element.row = row
-                    pivot_element.column = column
+    while used_rows[pivot_element.row]:
+        pivot_element.row += 1
+    while used_columns[pivot_element.column]:
+        pivot_element.column += 1
     return pivot_element
 
 
@@ -61,21 +55,8 @@ def SwapLines(a, b, used_rows, pivot_element):
 
 
 def ProcessPivotElement(a, b, pivot_element):
-    size = len(a)
-    row = pivot_element.row
-    col = pivot_element.column
-    pivot_value = a[row][col]
-
-    for i in range(size):
-        a[row][i] /= pivot_value
-    b[row] /= pivot_value
-
-    for other_row in range(size):
-        if other_row != row and abs(a[other_row][col]) > EPS:
-            factor = a[other_row][col]
-            for i in range(size):
-                a[other_row][i] -= a[row][i] * factor
-            b[other_row] -= b[row] * factor
+    # Write your code here
+    pass
 
 
 def MarkPivotElementUsed(pivot_element, used_rows, used_columns):
@@ -101,12 +82,8 @@ def SolveEquation(equation):
 
 def PrintColumn(column):
     size = len(column)
-    result = ""
     for row in range(size):
-        result = result + "%.6lf" % column[row] + " "
-    if size == 0:
-        return
-    print(result[: len(result) - 1])
+        print("%.20lf" % column[row])
 
 
 if __name__ == "__main__":

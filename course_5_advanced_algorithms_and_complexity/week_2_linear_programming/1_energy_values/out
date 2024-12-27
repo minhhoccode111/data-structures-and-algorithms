@@ -1,9 +1,4 @@
-Command:
-
-    diff <(python3 energy_values.py < test/1) <(cat test/1.a)
-    diff <(python3 energy_values.py < test/2) <(cat test/2.a)
-    diff <(python3 energy_values.py < test/3) <(cat test/3.a)
-    diff <(python3 energy_values.py < test/4) <(cat test/4.a)
-
-Output:
-    <empty>
+diff <(python3 energy_values.py < test/1) <(cat test/1.a)
+diff <(python3 energy_values.py < test/2) <(cat test/2.a)
+diff <(python3 energy_values.py < test/3) <(cat test/3.a)
+diff <(python3 energy_values.py < test/4) <(cat test/4.a)
