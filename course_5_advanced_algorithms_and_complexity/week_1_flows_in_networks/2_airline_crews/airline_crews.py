@@ -1,6 +1,10 @@
 # python3
 
 
+# apply an algorithm for finding maximum matching in a bipartite graph to assign
+# airline crews to flights in the most efficient way
+
+
 class MaxMatching:
     def read_data(self):
         n, m = map(int, input().split())
@@ -12,7 +16,6 @@ class MaxMatching:
         print(" ".join(line))
 
     def find_matching(self, n, m, adj_matrix):
-        # find augmenting path
         def dfs(flight, visited, match):
             for crew in range(m):
                 if adj_matrix[flight][crew] and not visited[crew]:
@@ -22,8 +25,7 @@ class MaxMatching:
                         return True
             return False
 
-        # find maximum matching
-        match = [-1] * m  # save current pilot of each crew
+        match = [-1] * m
         for flight in range(n):
             visited = [False] * m
             dfs(flight, visited, match)
