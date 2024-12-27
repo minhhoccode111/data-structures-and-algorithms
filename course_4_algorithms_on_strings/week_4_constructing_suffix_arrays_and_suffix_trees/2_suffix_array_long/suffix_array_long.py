@@ -1,14 +1,5 @@
 # python3
 
-"""
-
-diff <(python3 suffix_array_long.py < test/1) <(cat test/1.a)
-diff <(python3 suffix_array_long.py < test/2) <(cat test/2.a)
-diff <(python3 suffix_array_long.py < test/3) <(cat test/3.a)
-diff <(python3 suffix_array_long.py < test/4) <(cat test/4.a)
-
-"""
-
 
 import sys
 
@@ -16,7 +7,6 @@ ALPHABET_SIZE = 5
 
 
 def get_index(c):
-    """map characters to indices"""
     if c == "A":
         return 1
     elif c == "C":
@@ -30,7 +20,6 @@ def get_index(c):
 
 
 def counting_characters_sort(s):
-    """sort characters using counting sort"""
     order = [0] * len(s)
     count = [0] * ALPHABET_SIZE
 
@@ -49,7 +38,6 @@ def counting_characters_sort(s):
 
 
 def compute_character_classes(s, order):
-    """compute equivalence classes for characters"""
     cclass = [0] * len(s)
 
     for i in range(1, len(s)):
@@ -62,7 +50,6 @@ def compute_character_classes(s, order):
 
 
 def sort_doubled(s, L, order, cclass):
-    """sort doubled cyclic shifts"""
     count = [0] * len(s)
     new_order = [0] * len(s)
 
@@ -82,7 +69,6 @@ def sort_doubled(s, L, order, cclass):
 
 
 def update_classes(new_order, cclass, L):
-    """update equivalence classes"""
     n = len(new_order)
     new_cclass = [0] * n
 
@@ -99,7 +85,6 @@ def update_classes(new_order, cclass, L):
 
 
 def build_suffix_array(text):
-    """construct the suffix array"""
     order = counting_characters_sort(text)
     cclass = compute_character_classes(text, order)
     L = 1

@@ -1,10 +1,6 @@
 # python3
 
 
-# construct a suffix tree from the suffix array and LSP array of a string
-# TODO:
-
-
 import sys
 
 

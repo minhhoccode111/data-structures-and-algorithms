@@ -30,6 +30,8 @@
 <summary><strong>Reading List Chapters</strong></summary>
 
 - Course 1: Algorithmic Toolbox
+  - Week 0: Example
+    - {Num: ref above}: Section or Chapter of the document
   - Week 1: Intro
   - Week 2: Warm-up
     - {1}: 0.2
@@ -144,5 +146,5 @@ Every problem description can be found in `/resources`
 Solutions and test files can be tested like this
 
 ```sh
-diff <(python3 solution.py test/1) <(cat test/1.a)
+diff -b <(python3 solution.py test/1) <(cat test/1.a)
 ```

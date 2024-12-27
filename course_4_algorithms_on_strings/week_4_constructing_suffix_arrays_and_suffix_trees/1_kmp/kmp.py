@@ -1,20 +1,10 @@
 # python3
-import sys
-
-"""
-
-diff <(python3 kmp.py < test/1) <(cat test/1.a)
-diff <(python3 kmp.py < test/2) <(cat test/2.a)
-diff <(python3 kmp.py < test/3) <(cat test/3.a)
-
-"""
 
 
 import sys
 
 
 def compute_prefix_function(p):
-    """compute the prefix function for the pattern."""
     s = [0] * len(p)
     border = 0
 
@@ -31,7 +21,6 @@ def compute_prefix_function(p):
 
 
 def find_pattern(pattern, text):
-    """find all occurrences of the pattern in the text."""
     S = pattern + "$" + text
     s = compute_prefix_function(S)
     result = []
