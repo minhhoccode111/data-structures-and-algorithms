@@ -1,0 +1,4 @@
+diff -b <(python non_shared_substring.py < test/1) <(cat test/1.a)
+diff -b <(python non_shared_substring.py < test/2) <(cat test/2.a)
+diff -b <(python non_shared_substring.py < test/3) <(cat test/3.a)
+diff -b <(python non_shared_substring.py < test/4) <(cat test/4.a)

@@ -1,17 +1,17 @@
 # python3
 
 
-# find all occurrences of a collection of pattern in a text and will be able to
-# handle cases when one of the patterns is a prefix of another pattern
+# find all occurrences of a collection of pattern in a text
 
-# python3
 import sys
+
+NA = -1
 
 
 class Node:
     def __init__(self):
-        self.next = [None] * 4
-        self.patternEnd = False
+        self.next = [NA] * 4
+        self.is_pattern_end = False
 
 
 def char_to_index(char):
@@ -23,7 +23,7 @@ def char_to_index(char):
         return 2
     elif char == "T":
         return 3
-    return -1
+    return NA
 
 
 def build_trie(patterns):
@@ -32,34 +32,33 @@ def build_trie(patterns):
         current = root
         for char in pattern:
             index = char_to_index(char)
-            if current.next[index] is None:
+            if current.next[index] == NA:
                 current.next[index] = Node()
             current = current.next[index]
-        current.patternEnd = True
+        current.is_pattern_end = True
     return root
 
 
-def find_patterns(text, index, root):
+def find_pattern(text, index, root, pattern_length):
     current = root
-    i = index
-    while i < len(text):
+    for i in range(index, min(index + pattern_length, len(text))):
         char_index = char_to_index(text[i])
-        if char_index == -1 or current.next[char_index] is None:
-            break
+        if char_index == NA or current.next[char_index] == NA:
+            return False
         current = current.next[char_index]
-        if current.patternEnd:
+        if current.is_pattern_end:
             return True
-        i += 1
     return False
 
 
 def solve(text, n, patterns):
-    result = set()
+    result = []
     trie = build_trie(patterns)
+    max_pattern_length = max(len(p) for p in patterns)
     for i in range(len(text)):
-        if find_patterns(text, i, trie):
-            result.add(i)
-    return sorted(list(result))
+        if find_pattern(text, i, trie, max_pattern_length):
+            result.append(i)
+    return result
 
 
 text = sys.stdin.readline().strip()
