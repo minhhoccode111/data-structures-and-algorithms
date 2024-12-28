@@ -1,6 +1,10 @@
 # python3
 
 
+# this is a graph coloring problem where you need to color vertices (towers)
+# with 3 colors (frequencies) so that no connected vertices share the same color
+
+
 import itertools
 
 
@@ -22,13 +26,14 @@ def printEquisatisfiableSatFormula():
         print(0)
 
 
-n, m = map(int, input().split())
-edges = [list(map(int, input().split())) for i in range(m)]
-clauses = []
-digits = range(1, 4)
-for i in range(n):
-    exactly_one_of([varnum(i + 1, j) for j in digits])
-for j in edges:
-    for r in digits:
-        clauses.append([-varnum(j[0], r), -varnum(j[1], r)])
-printEquisatisfiableSatFormula()
+if __name__ == "__main__":
+    n, m = map(int, input().split())
+    edges = [list(map(int, input().split())) for i in range(m)]
+    clauses = []
+    digits = range(1, 4)
+    for i in range(n):
+        exactly_one_of([varnum(i + 1, j) for j in digits])
+    for j in edges:
+        for r in digits:
+            clauses.append([-varnum(j[0], r), -varnum(j[1], r)])
+    printEquisatisfiableSatFormula()

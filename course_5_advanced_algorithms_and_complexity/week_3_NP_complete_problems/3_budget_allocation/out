@@ -1,6 +1,2 @@
-Command:
-
-    diff <(python3 budget_allocation.py < test/1) <(cat test/1.a)
-    diff <(python3 budget_allocation.py < test/2) <(cat test/2.a)
-
-Output:
+diff <(python3 budget_allocation.py < test/1) <(cat test/1.a)
+diff <(python3 budget_allocation.py < test/2) <(cat test/2.a)
