@@ -1,7 +1,2 @@
-Command:
-
-    diff <(python3 circuit_design.py < test/1) <(cat test/1.a)
-    diff <(python3 circuit_design.py < test/2) <(cat test/2.a)
-
-Output:
-    <empty>
+diff <(python3 circuit_design.py < test/1) <(cat test/1.a)
+diff <(python3 circuit_design.py < test/2) <(cat test/2.a)

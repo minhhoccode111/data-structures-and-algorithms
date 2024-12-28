@@ -1,5 +1,12 @@
 # python3
 
+
+#  planning a company party and want to invite the coolest people (with assigned
+# "fun factors"). To avoid awkwardness, you can't invite both an employee and
+# their direct boss. Find the maximum total fun factor of a party under this
+# constraint
+
+
 import sys
 import threading
 

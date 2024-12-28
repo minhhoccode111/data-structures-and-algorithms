@@ -1,5 +1,9 @@
 # python3
 
+
+# design a single layer of an integrated circuit with modules and connections. wires can only bend once, either left or right. determine the bending direction for each wire to avoid intersections
+
+
 import sys
 import threading
 
