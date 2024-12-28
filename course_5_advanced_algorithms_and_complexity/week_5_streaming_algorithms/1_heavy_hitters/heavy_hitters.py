@@ -1,5 +1,10 @@
 # python3
 
+
+# determine if children are "nice" or "naughty" based on their good and bad
+# deeds, given a threshold
+
+
 import sys
 import statistics as stat
 import math
@@ -31,7 +36,6 @@ class count_sketch:
     def __init__(self, n):
         self.b = int(math.log(n) * 1500)
         self.t = int(math.log(n) + 1)
-        # self.data = [[0] * self.b] * self.t
         self.data = [[0] * self.b for _ in range(self.t)]
         self.ith_data = [0] * self.t
         self.funcs = [
@@ -65,15 +69,11 @@ algo = count_sketch(n)
 
 
 for _ in range(n):
-
     id, value = [int(i) for i in sys.stdin.readline().strip().split()]
-
     algo.update(id, value)
 
 for _ in range(n):
-
     id, value = [int(i) for i in sys.stdin.readline().strip().split()]
-
     algo.update(id, -value)
 
 num_queries = int(sys.stdin.readline().strip())
@@ -83,7 +83,6 @@ queries = list(map(int, sys.stdin.readline().strip().split()))
 assert len(queries) == num_queries
 
 for query in queries:
-
     print("1 " if algo.estimate(query) >= t else "0 ", end="")
 
 print()

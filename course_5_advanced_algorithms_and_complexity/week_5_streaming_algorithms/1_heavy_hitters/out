@@ -1,6 +1,1 @@
-Command:
-
-    diff <(python3 heavy_hitters.py < test/1) <(cat test/1.a)
-
-Output:
-    <empty>
+diff -b <(python3 heavy_hitters.py < test/1) <(cat test/1.a)
