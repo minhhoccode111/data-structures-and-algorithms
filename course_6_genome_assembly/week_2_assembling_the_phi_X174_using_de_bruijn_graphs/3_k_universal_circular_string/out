@@ -1,0 +1,1 @@
+diff <(python k_universal_circular_string.py < test/1) <(cat test/1.a)

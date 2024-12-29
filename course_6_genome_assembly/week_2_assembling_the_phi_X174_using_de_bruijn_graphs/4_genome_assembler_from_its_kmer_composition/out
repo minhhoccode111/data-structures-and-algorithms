@@ -1,0 +1,1 @@
+diff <(python genome_assembler_from_its_kmer_composition.py < test/1) <(cat test/1.a)
