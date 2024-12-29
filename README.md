@@ -141,10 +141,24 @@
 
 ## Problems
 
-Every problem description can be found in `/resources`
-
-Solutions and test files can be tested like this
+Weekly assignments can be found at `/resources`\
+Solutions and test files can be tested like this, which should be placed in the `out` file
 
 ```sh
-diff -b <(python3 solution.py test/1) <(cat test/1.a)
+diff -b <(python3 solution.py < test/1) <(cat test/1.a)
 ```
+
+<details>
+<summary><strong>Command explain</strong></summary>
+
+This command compares the output of the Python script (`solution.py`) when run with the input file (`test/1`) against the expected output stored in `test/1.a`. The `-b` flag ensures that differences in whitespace are ignored during the comparison.
+
+- `diff`: A command-line utility used to compare two files line by line and output the differences between them. If there are no differences, it produces no output.
+- `-b`: An option for `diff` that ignores differences in the amount of whitespace. For example, differences in the number of spaces or tabs will be overlooked.
+- `<(python3 solution.py < test/1)`: A process substitution that runs `python3 solution.py` with the input redirected from the file `test/1`. This executes the Python script `solution.py` using `test/1` as its input and provides its output as a temporary file-like stream to `diff`.
+- `<(cat test/1.a)`: Another process substitution that runs `cat test/1.a`, effectively reading the contents of the file `test/1.a` and providing it as another temporary file-like stream to `diff`.
+- `solution.py`: your solution file
+- `test/1`: provided input file
+- `test/1.a`: expected output file
+
+</details>
