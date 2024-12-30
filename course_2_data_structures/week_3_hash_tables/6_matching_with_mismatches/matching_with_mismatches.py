@@ -3,73 +3,108 @@
 
 # find all text locations where distance from pattern is sufficiently small
 
+
 import sys
+from functools import lru_cache
 
 
-def polynomial_hash(s, start, length, x, p):
-    ans = 0
-    for i in range(length):
-        ans = (ans * x + ord(s[start + i])) % p
-    return ans
+class Solver:
+    multiplier = 1234
+    prime = 1000000009
 
+    def __init__(self, text, pattern, num_mismatches):
+        self.t = text
+        self.p = pattern
+        self.k = num_mismatches
+        self.len_ = len(self.p)
 
-def precompute_hashes(text, pattern_len, x, p):
-    H = [0] * (len(text) - pattern_len + 1)
-    s = text[len(text) - pattern_len : len(text)]
-    H[len(text) - pattern_len] = polynomial_hash(
-        text, len(text) - pattern_len, pattern_len, x, p
-    )
-    y = 1
-    for i in range(pattern_len):
-        y = (y * x) % p
-    for i in range(len(text) - pattern_len - 1, -1, -1):
-        H[i] = (x * H[i + 1] + ord(text[i]) - y * ord(text[i + pattern_len])) % p
-    return H
+        self.hashes_t = self._precompute_hashes(self.t, self.prime)
+        self.hashes_p = self._precompute_hashes(self.p, self.prime)
 
+    def _precompute_hashes(self, string, prime):
+        hashes = [0 for _ in range(len(string) + 1)]
+        for i in range(1, len(string) + 1):
+            hashes[i] = (self.multiplier * hashes[i - 1] + ord(string[i - 1])) % prime
+        return hashes
 
-def count_mismatches_binary(text, pattern, pos, k):
-    count = 0
-    left = 0
-    right = len(pattern)
+    @staticmethod
+    def _modular_exponentitation(a, b, n):
+        d = 1
+        b = str(bin(b))[2:]
+        for i in range(len(b)):
+            d = (d * d) % n
+            if int(b[i]) == 1:
+                d = (d * a) % n
+        return d
 
-    while count <= k and left < right:
-        if text[pos + left] != pattern[left]:
-            count += 1
-        left += 1
-
-    return count
-
-
-def solve(k, text, pattern):
-    result = []
-    x, p = 263, 1000000007
-
-    if len(pattern) > len(text):
-        return []
-
-    pattern_hash = polynomial_hash(pattern, 0, len(pattern), x, p)
-    H = precompute_hashes(text, len(pattern), x, p)
-
-    for i in range(len(text) - len(pattern) + 1):
-        if H[i] == pattern_hash:
-            mismatches = count_mismatches_binary(text, pattern, i, k)
-            if mismatches <= k:
-                result.append(i)
+    @lru_cache(maxsize=1024 * 4)
+    def _calc_substring_hash(self, hash_type, prime, start, length):
+        if hash_type == "t":
+            hashes = self.hashes_t
         else:
-            mismatches = count_mismatches_binary(text, pattern, i, k)
-            if mismatches <= k:
-                result.append(i)
+            hashes = self.hashes_p
 
-    return result
+        y = self._modular_exponentitation(self.multiplier, length, prime)
+        substring_hash = (hashes[start + length] - y * hashes[start]) % prime
+        return substring_hash
+
+    def solve(self):
+        res = []
+
+        for i in range(len(self.t) - self.len_ + 1):
+            k_i = 0
+            a = i
+            base_b = i + self.len_ - 1
+            b = base_b
+            while k_i <= self.k:
+                mismatch = -1
+                while a <= b:
+                    mid = (a + b) // 2
+
+                    t_s_hash = self._calc_substring_hash(
+                        "t", self.prime, a, mid - a + 1
+                    )
+                    p_s_hash = self._calc_substring_hash(
+                        "p", self.prime, a - i, mid - a + 1
+                    )
+
+                    if t_s_hash == p_s_hash:
+                        a = mid + 1
+                    else:
+                        mismatch = mid
+                        b = mid - 1
+
+                if mismatch != -1:
+                    k_i += 1
+                    a = mismatch + 1
+                    b = base_b
+                else:
+                    res.append(i)
+                    break
+        return res
+
+    def solve_naive(self):
+        res = []
+
+        for i in range(len(self.t) - self.len_ + 1):
+            mismatches = 0
+            for j in range(self.len_):
+                if self.t[i + j] != self.p[j]:
+                    mismatches += 1
+
+            if mismatches > self.k:
+                continue
+            res.append(i)
+
+        return res
 
 
-lines = []
-for line in sys.stdin.readlines():
-    k, t, p = line.split()
-    ans = solve(int(k), t, p)
-    if ans:
-        lines.append(f"{len(ans)} {' '.join(map(str, ans))}")
-    else:
-        lines.append("0")
+def main():
+    for line in sys.stdin.readlines():
+        num_mismatches, text, pattern = line.split()
+        ans = Solver(text, pattern, int(num_mismatches)).solve()
+        print(len(ans), *ans)
 
-print("\n".join(lines))
+
+if __name__ == "__main__":
+    main()
