@@ -1,0 +1,1 @@
+diff <(python genome_error_prone_assembler.py < test/1) <(cat test/1.a)
